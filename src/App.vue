@@ -1,13 +1,10 @@
 <template>
   <v-app>
-    </v-app-bar>
 
     <v-content>
       <HelloWorld/>
       <frominput/>
     </v-content>
-    <v-router></v-router>
-    <router-vue></router-vue>
   </v-app>
 </template>
 

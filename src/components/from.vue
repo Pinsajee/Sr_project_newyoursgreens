@@ -9,7 +9,7 @@
           <v-list-item three-line>
             <v-list-item-content>
               <v-list-item-title class="headline mb-1">hello</v-list-item-title>
-              <v-list-item-subtitle>{{name}}</v-list-item-subtitle>
+              <v-list-item-subtitle>Pin</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -26,7 +26,7 @@
         </div>
         <v-text-field label="name" single-line solo></v-text-field>
         <div class="my-2">
-          <v-btn color="warning" dark>comment</v-btn>
+          <v-btn color="warning" dark v-on:click="addcomment">comment</v-btn>
         </div>
       </div>
     </v-col>
@@ -35,11 +35,22 @@
 </template>
 
 <script>
+  import { comments } from '../database/databaseconfig' 
   export default {
     name: 'frominput',
 
     data: () => ({
  //
-  })
+  }),
+  methods: {
+    addcomment() {
+      comments.push({
+        comments: "แคดดี้น่ารักจังเลยครับ",
+        name: "สมศักดิ์"
+      })
+
+ }
+
+  }
   }
 </script>
