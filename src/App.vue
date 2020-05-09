@@ -2,7 +2,6 @@
   <v-app>
 
     <v-content>
-      <HelloWorld/>
       <router-view/>
     </v-content>
     
