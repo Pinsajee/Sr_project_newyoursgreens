@@ -22,9 +22,9 @@
     <v-col cols="12" sm="6">
       <div class="form-group">
         <div>
-          <v-textarea label="Comment"></v-textarea>
+          <v-textarea label="Comment" v-model="commentText"></v-textarea>
         </div>
-        <v-text-field label="name" single-line solo></v-text-field>
+        <v-text-field label="name" v-model="name" single-line solo></v-text-field>
         <div class="my-2">
           <v-btn color="warning" dark v-on:click="addcomment">comment</v-btn>
         </div>
@@ -32,6 +32,8 @@
     </v-col>
     </div>
   </v-container>
+
+
 </template>
 
 <script>
@@ -39,16 +41,28 @@
   export default {
     name: 'frominput',
 
-    data: () => ({
- //
-  }),
+//     data: () => ({
+//  //
+//   }),
+  data() {
+      return {
+        commentText: "",
+        name: ""
+      };
+  },
   methods: {
     addcomment() {
       comments.push({
-        comments: "แคดดี้น่ารักจังเลยครับ",
-        name: "สมศักดิ์"
+        comments: this.commentText,
+        name: this.name
       })
 
+ },
+ created() {
+   comments.on('child_added' , snapshot => {
+     this.comments.push(snapshot.val());
+     console.log(snapshot.key);
+   })
  }
 
   }
