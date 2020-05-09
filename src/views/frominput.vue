@@ -9,7 +9,7 @@
           <v-list-item three-line>
             <v-list-item-content>
               <v-list-item-title class="headline mb-1">hello</v-list-item-title>
-              <v-list-item-subtitle>{{name}}</v-list-item-subtitle>
+              <v-list-item-subtitle>Pin</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-card>
@@ -22,24 +22,49 @@
     <v-col cols="12" sm="6">
       <div class="form-group">
         <div>
-          <v-textarea label="Comment"></v-textarea>
+          <v-textarea label="Comment" v-model="commentText"></v-textarea>
         </div>
-        <v-text-field label="name" single-line solo></v-text-field>
+        <v-text-field label="name" v-model="name" single-line solo></v-text-field>
         <div class="my-2">
-          <v-btn color="warning" dark>comment</v-btn>
+          <v-btn color="warning" dark v-on:click="addcomment">comment</v-btn>
         </div>
       </div>
     </v-col>
     </div>
   </v-container>
+
+
 </template>
 
 <script>
+  import { comments } from '../database/databaseconfig' 
   export default {
     name: 'frominput',
 
-    data: () => ({
- //
-  })
+//     data: () => ({
+//  //
+//   }),
+  data() {
+      return {
+        commentText: "",
+        name: ""
+      };
+  },
+  methods: {
+    addcomment() {
+      comments.push({
+        comments: this.commentText,
+        name: this.name
+      })
+
+ },
+ created() {
+   comments.on('child_added' , snapshot => {
+     this.comments.push(snapshot.val());
+     console.log(snapshot.key);
+   })
+ }
+
+  }
   }
 </script>
