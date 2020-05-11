@@ -2,22 +2,24 @@
  <v-container>
     <h2>test</h2>
     <div id="comment">
-    <v-col cols="12" sm="6">
-      <div>
+    <v-col cols="12" sm="6"   v-for="(message, i) in comments"
+          :key="i"
+          >
         <!--card-->
         <v-card max-width="344">
           <v-list-item three-line>
             <v-list-item-content>
-              <v-list-item-title class="headline mb-1">hello</v-list-item-title>
-              <v-list-item-subtitle>Pin</v-list-item-subtitle>
+              <v-list-item-title class="headline mb-1">{{message.comments}}</v-list-item-title>
+              <v-list-item-subtitle>{{message.name}}</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-card>
+      
+        </v-col >
       </div>
-
       <br />
       <hr />
-    </v-col>
+    
     <!--form-->
     <v-col cols="12" sm="6">
       <div class="form-group">
