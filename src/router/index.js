@@ -4,6 +4,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import frominput from '../views/frominput.vue'
 import caddyinfo from '../views/fromcaddy.vue'
+import testloop from '../views/testloop.vue'
 
 
 Vue.use(VueRouter)
@@ -23,6 +24,11 @@ Vue.use(VueRouter)
     path: '/caddyinfo',
     name: 'caddyinfo',
     component: caddyinfo
+  },
+  {
+    path: '/testloop',
+    name: 'testloop',
+    component: testloop
   },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
