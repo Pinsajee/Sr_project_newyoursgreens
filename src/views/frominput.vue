@@ -2,24 +2,28 @@
  <v-container>
     <h2>test</h2>
     <div id="comment">
+<<<<<<< HEAD
     <v-col cols="12" sm="6"   v-for="(message, key) in comments"
           :key="key"
           >
+=======
+    <v-col cols="12" sm="6">
+      <div>
+>>>>>>> ee6321f3df90fda3a3b9642603b027e4c6fe30bf
         <!--card-->
         <v-card max-width="344">
           <v-list-item three-line>
             <v-list-item-content>
-              <v-list-item-title class="headline mb-1">{{message.comments}}</v-list-item-title>
-              <v-list-item-subtitle>{{message.name}}</v-list-item-subtitle>
+              <v-list-item-title class="headline mb-1">hello</v-list-item-title>
+              <v-list-item-subtitle>Pin</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </v-card>
-      
-        </v-col >
       </div>
+
       <br />
       <hr />
-    
+    </v-col>
     <!--form-->
     <v-col cols="12" sm="6">
       <div class="form-group">
@@ -48,9 +52,9 @@
 //   }),
   data() {
       return {
-        commentText: '',
-        name: '',
-        commentArrays: []
+        commentText: "",
+        name: "",
+        commentsArrays: []
       };
   },
   methods: {
@@ -60,13 +64,14 @@
         name: this.name,
       })
 
- }
-},
-created() {
+ },
+ created() {
    comments.on('child_added' , snapshot => {
-     this.comments.push(snapshot.val());
+     this.commentsArrays.push(snapshot.val());
      console.log(snapshot.key);
    })
  }
+
+  }
   }
 </script>
