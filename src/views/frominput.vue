@@ -46,21 +46,22 @@
 //   }),
   data() {
       return {
-        commentText: "",
-        name: ""
+        commentText: '',
+        name: '',
+        commentArrays: []
       };
   },
   methods: {
     addcomment() {
       comments.push({
         comments: this.commentText,
-        name: this.name
+        name: this.name,
       })
 
  },
  created() {
    comments.on('child_added' , snapshot => {
-     this.comments.push(snapshot.val());
+     this.commentArrays.push(snapshot.val());
      console.log(snapshot.key);
    })
  }
