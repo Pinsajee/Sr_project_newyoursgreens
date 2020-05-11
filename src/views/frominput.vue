@@ -32,7 +32,7 @@
         </div>
       </div>
     </v-col>
-    </div>
+    
   </v-container>
 
 
