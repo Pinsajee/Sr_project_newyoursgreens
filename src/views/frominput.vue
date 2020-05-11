@@ -60,14 +60,13 @@
         name: this.name,
       })
 
- },
- created() {
+ }
+},
+created() {
    comments.on('child_added' , snapshot => {
-     this.commentArrays.push(snapshot.val());
+     this.comments.push(snapshot.val());
      console.log(snapshot.key);
    })
  }
-
-  }
   }
 </script>
