@@ -2,7 +2,7 @@
   <v-app>
 
     <v-content>
-      <HelloWorld/>
+      <navigation/>
       <router-view/>
     </v-content>
     
@@ -10,14 +10,14 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
+import navigation from './components/navigation';
 import frominput from './components/from';
 
 export default {
   name: 'App',
 
   components: {
-    HelloWorld,
+    navigation,
     frominput,
   },
 
