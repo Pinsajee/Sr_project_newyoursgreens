@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col
-          cols="12"
+          cols="6"
           md="4"
         >
           <v-text-field
