@@ -16,7 +16,7 @@
         </v-col>
 
         <v-col
-          cols="12"
+          cols="6"
           md="4"
         >
           <v-text-field
@@ -29,7 +29,7 @@
         </v-col>
 
         <v-col
-          cols="12"
+          cols="6"
           md="4"
         >
           <v-text-field

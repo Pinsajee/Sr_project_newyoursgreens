@@ -2,8 +2,8 @@
  <v-container>
     <h2>test</h2>
     <div id="comment">
-    <v-col cols="12" sm="6"   v-for="(message, i) in comments"
-          :key="i"
+    <v-col cols="12" sm="6"   v-for="(message, key) in comments"
+          :key="key"
           >
         <!--card-->
         <v-card max-width="344">
