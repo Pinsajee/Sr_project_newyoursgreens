@@ -47,7 +47,8 @@
   data() {
       return {
         commentText: "",
-        name: ""
+        name: "",
+        commentsArrays: []
       };
   },
   methods: {
@@ -57,14 +58,15 @@
         name: this.name
       })
 
- },
- created() {
+ }
+ 
+
+  },
+  created() {
    comments.on('child_added' , snapshot => {
-     this.comments.push(snapshot.val());
+     this.commentsArrays = snapshot.val
      console.log(snapshot.key);
    })
  }
-
-  }
   }
 </script>

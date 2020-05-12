@@ -74,7 +74,8 @@
         firstname: "",
         lastname: "",
         nickname: "",
-        tel: ""
+        tel: "",
+        caddyArrays: []
       };
   },
   methods: {
@@ -89,6 +90,12 @@
 
  },
 
-  }
+  },
+  created() {
+   caddyinfo.on('child_added' , snapshot => {
+     this.caddyArrays = snapshot.val
+     console.log(snapshot.key);
+   })
+ }
   }
 </script>

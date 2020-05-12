@@ -2,9 +2,9 @@
   <v-container>
     <h2>test</h2>
     <div id="comment">
-      <v-col cols="12" sm="6" v-for="(message, key) in comments" :key="key">
+      <v-col cols="12" sm="6" v-for="(message, key) in commentsArrays" :key="key">
         <!--card-->
-        <v-card max-width="344">
+        <v-card max-width="460">
           <v-list-item three-line>
             <v-list-item-content>
               <v-list-item-title class="headline mb-1">{{
@@ -12,6 +12,8 @@
               }}</v-list-item-title>
               <v-list-item-subtitle>{{ message.name }}</v-list-item-subtitle>
             </v-list-item-content>
+            <v-btn color="warning" dark>Edit</v-btn>
+            <v-btn color="warning" dark>Delete</v-btn>
           </v-list-item>
         </v-card>
       </v-col>
@@ -52,9 +54,8 @@
   data() {
       return {
         commentText: "",
-        commentsArrays: [],
         name: "",
-
+        commentsArrays: []
       };
   },
   methods: {
@@ -64,14 +65,14 @@
         name: this.name,
       })
 
- },
- created() {
-   comments.on('child_added' , snapshot => {
-     this.commentsArrays = snapshot.val
-     console.log(snapshot.key);
-   })
  }
 
-  }
+  },
+  created() {
+    comments.on('child_added' , snapshot => {
+    this.commentsArrays.push(snapshot.val())  
+    console.log(snapshot.key);
+   })
+ }
   }
 </script>
