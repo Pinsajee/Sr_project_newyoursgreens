@@ -63,7 +63,7 @@
  },
  created() {
    comments.on('child_added' , snapshot => {
-     this.commentsArrays.push(snapshot.val());
+     this.commentsArrays = snapshot.val
      console.log(snapshot.key);
    })
  }
