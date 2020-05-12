@@ -1,6 +1,6 @@
 <template>
   <v-container>
-    <h2>test</h2>
+    <h2>comment test</h2>
     <div id="comment">
       <v-col cols="12" sm="6" v-for="(message, key) in commentsArrays" :key="key">
         <!--card-->
@@ -12,8 +12,8 @@
               }}</v-list-item-title>
               <v-list-item-subtitle>{{ message.name }}</v-list-item-subtitle>
             </v-list-item-content>
-            <v-btn color="warning" dark>Edit</v-btn>
-            <v-btn color="warning" dark>Delete</v-btn>
+            <v-btn color="primary" dark class="ma-2">Edit</v-btn>
+            <v-btn color="error" dark class="ma-2">Delete</v-btn>
           </v-list-item>
         </v-card>
       </v-col>
