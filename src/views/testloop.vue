@@ -6,17 +6,19 @@
           <v-card-subtitle>select time</v-card-subtitle>
           <v-divider></v-divider>
           <v-card-subtitle>teetime</v-card-subtitle>
+          <div v-for="(item, i) in items"
+            :key="i">
           <v-col
             class="text-center"
             cols="12"
             sm="4"
-            v-for="(item, i) in items"
-            :key="i"
+           
           >
             <div class="my-2">
-              <v-btn small>{{ items.time }}</v-btn>
+              <v-btn small>{{ item.time }}</v-btn>
             </div>
           </v-col>
+          </div>
         </v-card>
       </v-col>
     </v-flex>
