@@ -21,8 +21,8 @@
               <v-btn color="error" dark class="ma-2" @click.prevent="deletecomment(message)">Delete</v-btn>
             </div>
             <div v-else>
-              <v-btn color="primary" dark class="ma-2" @click.prevent="CancelEdit()">Cancel</v-btn>
-              <v-btn color="error" dark class="ma-2" @click.prevent="updatecomment()">Update</v-btn>
+              <v-btn color="error" dark class="ma-2" @click.prevent="CancelEdit()">Cancel</v-btn>
+              <v-btn color="primary" dark class="ma-2" @click.prevent="updatecomment()">Update</v-btn>
             </div>
 
             
