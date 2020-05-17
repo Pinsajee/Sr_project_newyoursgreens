@@ -38,6 +38,7 @@
           </v-card>
         </v-col>
       </v-flex>
+
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
@@ -76,9 +77,13 @@
           </v-card>
         </v-col>
       </v-flex>
+
+       
     </v-layout>
   </v-container>
 </template>
+
+
 
 <script>
 export default {
@@ -115,6 +120,22 @@ export default {
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     },
+     items: [
+      {
+        time: "06:00",
+     
+      },
+      {
+        color: "#952175",
+      
+      },
+      {
+        color: "#16A085",
+        comment: "momo",
+        name: "lplp",
+      },
+    ],
   },
+ 
 };
 </script>
