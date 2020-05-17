@@ -15,6 +15,8 @@
   <v-form
     ref="form"
     lazy-validation
+    @submit.prevent="submit"
+          onSubmit="return false;"
   >
   
   <v-text-field
@@ -54,11 +56,17 @@
     prepend-icon="mdi-camera"
   ></v-file-input> -->
     
-  </v-form>
+ 
    <div class="my-2">
-          <v-btn rounded block color="#05BC01" dark v-on:click="addinfo">confrim</v-btn>
+          <v-btn rounded block color="#05BC01" dark v-on:click="addinfo" >confrim</v-btn>
+         
+     <v-icon dark>refresh</v-icon>
+
+
         </div>
-  </v-col>
+  
+   </v-form>
+   </v-col>
  
 </v-card>
 </v-container>

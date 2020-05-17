@@ -12,7 +12,7 @@
               }}</v-list-item-title>
               <v-list-item-subtitle>{{ message.name }}</v-list-item-subtitle>
             </v-list-item-content>
-            <v-btn color="primary" dark class="ma-2">Edit</v-btn>
+            <v-btn color="primary" dark class="ma-2" sm=6>Edit</v-btn>
             <v-btn color="error" dark class="ma-2">Delete</v-btn>
           </v-list-item>
         </v-card>
