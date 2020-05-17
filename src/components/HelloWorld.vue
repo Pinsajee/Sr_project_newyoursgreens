@@ -45,7 +45,7 @@
             <v-divider></v-divider>
             
 
-            <v-menu
+            <v-menu cols="auto" xs12 md8
           ref="menu1"
           v-model="menu1"
           :close-on-content-click="false"
@@ -54,7 +54,7 @@
           max-width="290px"
           min-width="290px"
         >
-          <template v-slot:activator="{ on }">
+         <template v-slot:activator="{ on }" cols="auto" xs12 md8>
             <v-text-field
               v-model="dateFormatted"
               label="Date"
@@ -94,7 +94,7 @@ export default {
       date: new Date().toISOString().substr(0, 10),
       dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
       menu1: false,
-      menu2: false,
+      
     }),
 
     computed: {
