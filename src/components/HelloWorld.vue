@@ -39,6 +39,8 @@
           </v-card>
          
         </v-col>
+      </v-flex>
+      <v-flex  xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
             <v-card-subtitle>select date</v-card-subtitle>
