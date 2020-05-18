@@ -32,7 +32,7 @@
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
-            <v-card-subtitle>search teetime</v-card-subtitle>
+            <v-card-title>search teetime</v-card-title>
             <v-divider></v-divider>
             <v-card-subtitle>date</v-card-subtitle>
           </v-card>
@@ -42,9 +42,8 @@
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
-            <v-card-subtitle>select date</v-card-subtitle>
+            <v-card-title>select date</v-card-title>
             <v-divider></v-divider>
-
             <v-col cols="11" sm="5">
               <v-dialog
                 ref="menu1"
@@ -78,18 +77,212 @@
         </v-col>
       </v-flex>
 
-       
+      <v-flex xs12 md8>
+        <v-col cols="auto" xs12 md8>
+          <v-flex xs12 md12>
+            <v-card light>
+              <v-card-title>select time</v-card-title>
+              <v-divider></v-divider>
+
+              <v-row class="mb-2">
+                <v-col cols="auto" ms12 class="text-center">
+                  <v-btn
+                    class="ma-2"
+                    large
+                    color="#43C677"
+                    dark
+                    v-for="(item, i) in items"
+                    :key="i"
+                    >{{ item.time }}</v-btn
+                  >
+                </v-col>
+              </v-row>
+            </v-card>
+          </v-flex>
+        </v-col>
+      </v-flex>
+
+      <v-flex xs12 md8>
+        <v-col cols="auto" xs12 md8>
+          <v-card light>
+            <v-card-title>select gofer</v-card-title>
+            <v-divider></v-divider>
+            <v-card-text class="text--primary">
+              <div>
+                <v-row align="center" class="mb-2">
+                  <v-col cols="6">
+                    <h4>Member</h4>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-select
+                      :items="golfer"
+                      label="0 golfer"
+                      dense
+                      solo
+                    ></v-select>
+                  </v-col>
+
+                  <v-col cols="6">
+                    <h4>Visitor</h4>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-select
+                      :items="golfer"
+                      label="0 golfer"
+                      dense
+                      solo
+                    ></v-select>
+                  </v-col>
+
+                  <v-col cols="6">
+                    <h4>Guess</h4>
+                  </v-col>
+                  <v-col cols="6">
+                    <v-select
+                      :items="golfer"
+                      label="0 golfer"
+                      dense
+                      solo
+                    ></v-select>
+                  </v-col>
+                </v-row>
+              </div>
+            </v-card-text>
+          </v-card>
+        </v-col>
+      </v-flex>
+
+      <v-flex xs12 md8>
+        <v-col cols="auto" xs12 md8>
+          <v-card light>
+            <v-card-title>Reservation Information</v-card-title>
+            <v-divider></v-divider>
+            <v-col cols="12" sm="6">
+              <v-text-field label="Name" single-line></v-text-field>
+              <v-text-field label="E-mail" single-line></v-text-field>
+              <v-text-field label="phone" single-line></v-text-field>
+            </v-col>
+          </v-card>
+        </v-col>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>
-
-
 
 <script>
 export default {
   name: "pichead",
 
   data: (vm) => ({
+    golfer: [
+      "1 golfer",
+      "2 golfer",
+      "3 golfer",
+      "4 golfer",
+      "5 golfer",
+      "6 golfer",
+    ],
+    items: [
+      {
+        time: "07:00",
+      },
+      {
+        time: "07:07",
+      },
+      {
+        time: "07:14",
+      },
+      {
+        time: "06:21",
+      },
+      {
+        time: "06:28",
+      },
+      {
+        time: "06:35",
+      },
+      {
+        time: "07:07",
+      },
+      {
+        time: "07:14",
+      },
+      {
+        time: "06:21",
+      },
+      {
+        time: "06:28",
+      },
+      {
+        time: "06:35",
+      },
+      {
+        time: "07:00",
+      },
+      {
+        time: "07:07",
+      },
+      {
+        time: "07:14",
+      },
+      {
+        time: "06:21",
+      },
+      {
+        time: "06:28",
+      },
+      {
+        time: "06:35",
+      },
+      {
+        time: "07:07",
+      },
+      {
+        time: "07:14",
+      },
+      {
+        time: "06:21",
+      },
+      {
+        time: "06:28",
+      },
+      {
+        time: "06:35",
+      },
+      {
+        time: "07:00",
+      },
+      {
+        time: "07:07",
+      },
+      {
+        time: "07:14",
+      },
+      {
+        time: "06:21",
+      },
+      {
+        time: "06:28",
+      },
+      {
+        time: "06:35",
+      },
+      {
+        time: "07:07",
+      },
+      {
+        time: "07:14",
+      },
+      {
+        time: "06:21",
+      },
+      {
+        time: "06:28",
+      },
+      {
+        time: "06:35",
+      },
+    ],
     date: new Date().toISOString().substr(0, 10),
     dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
     menu1: false,
@@ -120,14 +313,12 @@ export default {
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     },
-     items: [
+    items: [
       {
         time: "06:00",
-     
       },
       {
         color: "#952175",
-      
       },
       {
         color: "#16A085",
@@ -136,6 +327,5 @@ export default {
       },
     ],
   },
- 
 };
 </script>
