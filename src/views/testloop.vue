@@ -5,14 +5,15 @@
     <v-flex xs12 md8>
       <v-col cols="auto" xs12 md8>
 
-<v-flex xs12 md8>
+<v-flex xs12 md12>
         <v-card light>
           <v-card-subtitle>select time</v-card-subtitle>
           <v-divider></v-divider>
           <v-card-subtitle>teetime</v-card-subtitle>
           <v-row class="d-flex flex-wrap"> 
-            <v-col cols="auto" ms12 v-for="(item, i) in items" :key="i" >
-              <v-btn class="ma-2" large color="#A7FFEB">{{ item.time }}</v-btn>
+            <v-col cols="auto" ms12 >
+             
+              <v-btn class="ma-2" large color="#43C677" dark v-for="(item, i) in items" :key="i" >{{ item.time }}</v-btn>
             </v-col>
           </v-row>
         </v-card>
@@ -29,13 +30,22 @@ export default {
   data: () => ({
     items: [
       {
-        time: "06:00",
+        time: "07:00",
       },
       {
-        time: "06:07",
+        time: "07:07",
       },
       {
-        time: "06:14",
+        time: "07:14",
+      },
+       {
+        time: "06:21",
+      },
+       {
+        time: "06:28",
+      },
+       {
+        time: "06:35",
       },
     ],
   }),
