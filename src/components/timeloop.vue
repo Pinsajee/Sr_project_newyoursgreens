@@ -6,6 +6,7 @@
         <v-card-subtitle>select time</v-card-subtitle>
         <v-divider></v-divider>
         <v-card-subtitle>teetime</v-card-subtitle>
+        
         <v-col
           class="text-center"
           sm="4"
@@ -16,7 +17,9 @@
             <v-btn small>{{item.time}}</v-btn>
           </div>
         </v-col>
+        
       </v-card>
+      
     </v-col>
   </v-flex>
   </v-container>
