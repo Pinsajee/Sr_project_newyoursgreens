@@ -11,8 +11,8 @@
           <v-divider></v-divider>
           <v-card-subtitle>teetime</v-card-subtitle>
           <v-row class="d-flex flex-wrap"> 
-            <v-col cols="2"  v-for="(item, i) in items" :key="i" >
-              <v-btn class="ma-2">{{ item.time }}</v-btn>
+            <v-col cols="auto" ms12 v-for="(item, i) in items" :key="i" >
+              <v-btn class="ma-2" large color="#A7FFEB">{{ item.time }}</v-btn>
             </v-col>
           </v-row>
         </v-card>
