@@ -12,7 +12,7 @@
           <v-form ref="form" lazy-validation @submit.prevent="submit" onsubmit="return false;">
             <v-text-field v-model="form.code" :counter="3" label="Code" required></v-text-field>
 
-            <v-text-field v-model.trim="form.firstname" name="Firstname" label="Fristname" required></v-text-field>
+            <v-text-field v-model.trim="form.firstname" name="Firstname" label="Firstname" required></v-text-field>
 
             <v-text-field v-model.trim="form.lastname" label="Lastname" required></v-text-field>
 
