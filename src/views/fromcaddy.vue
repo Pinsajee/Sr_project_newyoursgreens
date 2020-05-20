@@ -53,13 +53,13 @@
         <v-form ref="form" lazy-validation @submit.prevent="submit" onsubmit="return false;">
           <v-text-field v-model="code" :counter="3" label="Code" required></v-text-field>
 
-          <v-text-field v-model="firstname" label="Fristname" required></v-text-field>
+          <v-text-field v-model="firstname" label="Firstname" required></v-text-field>
 
           <v-text-field v-model="lastname" label="Lastname" required></v-text-field>
 
-          <v-text-field v-model="nickname" label="nickname" required></v-text-field>
+          <v-text-field v-model="nickname" label="Nickname" required></v-text-field>
 
-          <v-text-field v-model="tel" :counter="10" label="telephone" required></v-text-field>
+          <v-text-field v-model="tel" :counter="10" label="Telephone" required></v-text-field>
           <!-- <v-file-input
     label="File input"
     filled

@@ -12,13 +12,13 @@
           <v-form ref="form" lazy-validation @submit.prevent="submit" onsubmit="return false;">
             <v-text-field v-model="form.code" :counter="3" label="Code" required></v-text-field>
 
-            <v-text-field v-model.trim="form.firstname" name="firstname" label="Fristname" required></v-text-field>
+            <v-text-field v-model.trim="form.firstname" name="Firstname" label="Fristname" required></v-text-field>
 
             <v-text-field v-model.trim="form.lastname" label="Lastname" required></v-text-field>
 
-            <v-text-field v-model="form.nickname" label="nickname" required></v-text-field>
+            <v-text-field v-model="form.nickname" label="Nickname" required></v-text-field>
 
-            <v-text-field v-model="form.tel" :counter="10" label="telephone" required></v-text-field>
+            <v-text-field v-model="form.tel" :counter="10" label="Telephone" required></v-text-field>
 
             <div class="my-2">
               <v-btn rounded block color="#4F9EFF" dark v-on:click="onUpdate">Save</v-btn>
