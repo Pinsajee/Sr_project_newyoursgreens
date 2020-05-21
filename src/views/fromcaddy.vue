@@ -1,7 +1,6 @@
 <template>
   <v-container>
     <div slot="buttons">
-      <router-link class="btn" :to="{ name:'formedit' }">เพิ่มข้อมูลใหม่</router-link>
     </div>
 
     <div id="caddy">
@@ -67,7 +66,7 @@
           ></v-file-input>-->
 
           <div class="my-2">
-            <v-btn rounded block color="#05BC01" dark v-on:click="addinfo">confrim</v-btn>
+            <v-btn rounded block color="#05BC01" dark v-on:click="addinfo">Confirm</v-btn>
 
             <v-icon dark>refresh</v-icon>
           </div>
