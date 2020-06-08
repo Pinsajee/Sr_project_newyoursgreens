@@ -1,4 +1,5 @@
 <template>
+
   <v-app-bar app color="#0F7D63" dark>
     <div class="d-flex align-center">
       <v-img
@@ -14,6 +15,7 @@
     <span class="mr-2" >Booking</span>
       
     </v-app-bar>
+
 </template>
 
 

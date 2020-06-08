@@ -1,30 +1,36 @@
 <template>
   <v-container>
     <v-layout row>
+      <!-- head photo-->
       <v-flex xs12 md8>
         <v-col cols="12">
-          <v-img :src="require('../assets/pic1.jpg')" max-height="200" />
+          <v-img :src="require('../assets/pic1.jpg')" max-height="400" />
         </v-col>
       </v-flex>
-
-      <v-flex xs12 md8>
+      <!-- card 1-->
+      <v-flex xs12 md12>
         <v-col cols="auto" xs12 md8>
-          <v-card light>
-            <v-flex xs12>
-              <v-img
-                src="../assets/golflogo.jpg"
-                height="125px"
-                contain
-              ></v-img>
+          <v-card light class="hidden" hidd>
+            <v-card-text>
+              <v-row align="center">
+                <v-col class="display-3" cols="5" xs12>
+                  <v-img
+                    src="../assets/golflogo.jpg"
+                    height="180px"
+                    contain
+                  ></v-img>
+                </v-col>
+                <v-col class="display-3" cols="7" xs12>
+                  <v-card-title 
+                    >Green Valley Country Club Bangkok</v-card-title
+                  >
 
-              <v-card-title class="headline"
-                >Green Valley Country Club Bangkok</v-card-title
-              >
-
-              <v-card-subtitle
-                >สนามกอล์ฟกรีนวัลเล่ คันทรีคลับ บางนา</v-card-subtitle
-              >
-            </v-flex>
+                  <v-card-subtitle
+                    >สนามกอล์ฟกรีนวัลเล่ คันทรีคลับ บางนา</v-card-subtitle
+                  >
+                </v-col>
+              </v-row>
+            </v-card-text>
           </v-card>
         </v-col>
       </v-flex>

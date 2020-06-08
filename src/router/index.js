@@ -6,7 +6,7 @@ import frominput from '../views/frominput.vue'
 import caddyinfo from '../views/fromcaddy.vue'
 import testloop from '../views/testloop.vue'
 import formedit from '../views/formedit.vue'
-
+import login from '../views/login.vue'
 
 Vue.use(VueRouter)
 
@@ -35,6 +35,10 @@ Vue.use(VueRouter)
     path: '/formedit/:id',
     name: 'formedit',
     component: formedit
+  }, {
+    path: '/login',
+    name: 'login',
+    component: login
   }
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
