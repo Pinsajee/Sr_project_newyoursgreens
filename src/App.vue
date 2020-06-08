@@ -11,14 +11,14 @@
 
 <script>
 import navigation from './components/navigation';
-import frominput from './components/from';
+
 
 export default {
   name: 'App',
 
   components: {
     navigation,
-    frominput,
+    
   },
 
   data: () => ({

@@ -7,10 +7,11 @@
           <v-img :src="require('../assets/pic1.jpg')" max-height="400" />
         </v-col>
       </v-flex>
+
       <!-- card 1-->
-      <v-flex xs12 md12>
+      <v-flex xs12 md8 >
         <v-col cols="auto" xs12 md8>
-          <v-card light class="hidden" hidd>
+          <v-card light hidden-md-only>
             <v-card-text>
               <v-row align="center">
                 <v-col class="display-3" cols="5" xs12>
@@ -34,6 +35,7 @@
           </v-card>
         </v-col>
       </v-flex>
+
 
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
@@ -166,12 +168,30 @@
             <v-col cols="12" sm="6">
               <v-text-field label="Name" single-line></v-text-field>
               <v-text-field label="E-mail" single-line></v-text-field>
-              <v-text-field label="phone" single-line></v-text-field>
+              <v-text-field label="Phone" single-line></v-text-field>
             </v-col>
           </v-card>
         </v-col>
       </v-flex>
+
+       <v-flex xs12 md8>
+        <v-col cols="auto" xs12 md8>
+          <v-card light>
+            <v-card-title>Reservation Details</v-card-title>
+            <v-divider></v-divider>
+            <v-col cols="12" sm="6">
+              <v-text-field label="Date:" single-line></v-text-field>
+              <v-text-field label="Time:" single-line></v-text-field>
+            </v-col>
+          </v-card>
+        </v-col>
+      </v-flex>
+
     </v-layout>
+    
+       <div col="12" md8 sm12> 
+            <v-btn rounded block color="#05BC01" dark v-on:click="ConfirmBooking">Confirm Your Booking</v-btn>
+          </div>
   </v-container>
 </template>
 
