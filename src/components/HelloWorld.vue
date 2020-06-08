@@ -190,7 +190,7 @@
     </v-layout>
     
        <div col="12" md8 sm12> 
-            <v-btn rounded block color="#05BC01" dark v-on:click="ConfirmBooking">Confirm Your Booking</v-btn>
+            <v-btn rounded block  x-large color="#05BC01" dark v-on:click="ConfirmBooking">Confirm Your Booking</v-btn>
           </div>
   </v-container>
 </template>
