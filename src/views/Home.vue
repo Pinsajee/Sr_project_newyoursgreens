@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <HelloWorld/>
-  <timeloop/>
+    <bookingPage/>
+  
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import bookingPage from '@/components/BookingHome.vue'
 
 
 export default {
   name: 'Home',
   components: {
-    HelloWorld,
+    bookingPage,
    
   }
 }

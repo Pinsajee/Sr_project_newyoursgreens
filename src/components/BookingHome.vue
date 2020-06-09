@@ -47,7 +47,7 @@
         </v-col>
       </v-flex>
 
-      <v-flex xs12 md8>
+      <!-- <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
             <v-card-title>select date</v-card-title>
@@ -83,9 +83,19 @@
             </v-col>
           </v-card>
         </v-col>
-      </v-flex>
+      </v-flex> -->
+     
+    <datePicker/>
+  
+  
+     
 
-      <v-flex xs12 md8>
+<div class="selectTime">
+    <selectTime/>
+  
+  </div>
+
+      <!-- <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-flex xs12 md12>
             <v-card light>
@@ -108,7 +118,7 @@
             </v-card>
           </v-flex>
         </v-col>
-      </v-flex>
+      </v-flex> -->
 
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
@@ -196,8 +206,19 @@
 </template>
 
 <script>
+
+import selectTime from '@/components/timeloop.vue'
+import datePicker from '@/components/DatePicker.vue'
+
+
+
 export default {
-  name: "pichead",
+  components: {
+    selectTime,
+    datePicker,
+    
+  },
+
 
   data: (vm) => ({
     golfer: [
@@ -207,50 +228,6 @@ export default {
       "4 golfer",
       "5 golfer",
       "6 golfer",
-    ],
-    items: [
-      {
-        time: "08:10",
-      },
-      {
-        time: "08:24",
-      },
-      {
-        time: "08:38",
-      },
-      {
-        time: "08:52",
-      },
-      {
-        time: "09:06",
-      },
-      {
-        time: "09:20",
-      },
-      {
-        time: "09:34",
-      },
-      {
-        time: "09:48",
-      },
-      {
-        time: "10:02",
-      },
-      {
-        time: "10:16",
-      },
-      {
-        time: "10:30",
-      },
-      {
-        time: "10:44",
-      },
-      {
-        time: "10:58",
-      },
-      {
-        time: "11:12",
-      },
     ],
     date: new Date().toISOString().substr(0, 10),
     dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
@@ -282,19 +259,7 @@ export default {
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     },
-    items: [
-      {
-        time: "06:00",
-      },
-      {
-        color: "#952175",
-      },
-      {
-        color: "#16A085",
-        comment: "momo",
-        name: "lplp",
-      },
-    ],
+   
   },
 };
 </script>

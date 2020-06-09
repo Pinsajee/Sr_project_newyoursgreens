@@ -1,28 +1,29 @@
 <<template>
-<v-container>
-  <v-flex xs12 md8>
-    <v-col cols="auto" xs12 md8>
-      <v-card light>
-        <v-card-subtitle>select time</v-card-subtitle>
-        <v-divider></v-divider>
-        <v-card-subtitle>teetime</v-card-subtitle>
-        
-        <v-col
-          class="text-center"
-          sm="4"
-          v-for="(item, i) in items"
-          :key="i"
-        >
-          <div class="my-2">
-            <v-btn small>{{item.time}}</v-btn>
-          </div>
+<v-flex xs12 md8>
+        <v-col cols="auto" xs12 md8>
+         
+            <v-card light>
+              <v-card-title>select time</v-card-title>
+              <v-divider></v-divider>
+
+              <v-row class="mb-2">
+                <v-col cols="auto" ms12 class="text-center">
+                  <v-btn
+                    class="ma-2"
+                    large
+                    color="#43C677"
+                    dark
+                    v-for="(item, i) in items"
+                    :key="i"
+                    >{{ item.time }}</v-btn
+                  >
+                </v-col>
+              </v-row>
+            </v-card>
+         
         </v-col>
-        
-      </v-card>
-      
-    </v-col>
-  </v-flex>
-  </v-container>
+      </v-flex>
+
 </template>
 
 <script>
@@ -30,15 +31,48 @@ export default {
   name: "timeloop",
 
   data: () => ({
-    items: [
+      items: [
       {
-        time: "06:00",
+        time: "08:10",
       },
       {
-        time: "06:07",
+        time: "08:24",
       },
       {
-        time: "06:14",
+        time: "08:38",
+      },
+      {
+        time: "08:52",
+      },
+      {
+        time: "09:06",
+      },
+      {
+        time: "09:20",
+      },
+      {
+        time: "09:34",
+      },
+      {
+        time: "09:48",
+      },
+      {
+        time: "10:02",
+      },
+      {
+        time: "10:16",
+      },
+      {
+        time: "10:30",
+      },
+      {
+        time: "10:44",
+      },
+      {
+        time: "10:58",
+      },
+      {
+        time: "11:12",
       },
     ],
   }),
