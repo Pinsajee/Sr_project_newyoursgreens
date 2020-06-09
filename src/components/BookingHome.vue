@@ -9,9 +9,9 @@
       </v-flex>
 
       <!-- card 1-->
-      <v-flex xs12 md8 >
+      <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
-          <v-card light hidden-md-only>
+          <v-card light>
             <v-card-text>
               <v-row align="center">
                 <v-col class="display-3" cols="5" xs12>
@@ -22,9 +22,7 @@
                   ></v-img>
                 </v-col>
                 <v-col class="display-3" cols="7" xs12>
-                  <v-card-title 
-                    >Green Valley Country Club Bangkok</v-card-title
-                  >
+                  <v-card-title>Green Valley Country Club Bangkok</v-card-title>
 
                   <v-card-subtitle
                     >สนามกอล์ฟกรีนวัลเล่ คันทรีคลับ บางนา</v-card-subtitle
@@ -36,7 +34,6 @@
         </v-col>
       </v-flex>
 
-
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
@@ -47,78 +44,11 @@
         </v-col>
       </v-flex>
 
-      <!-- <v-flex xs12 md8>
-        <v-col cols="auto" xs12 md8>
-          <v-card light>
-            <v-card-title>select date</v-card-title>
-            <v-divider></v-divider>
-            <v-col cols="11" sm="5">
-              <v-dialog
-                ref="menu1"
-                v-model="menu1"
-                :close-on-content-click="false"
-                transition="scale-transition"
-                offset-y
-                max-width="290px"
-                min-width="290px"
-              >
-                <template v-slot:activator="{ on }">
-                  <v-text-field
-                    v-model="dateFormatted"
-                    label="Date"
-                    hint="MM/DD/YYYY format"
-                    persistent-hint
-                    prepend-icon="event"
-                    @blur="date = parseDate(dateFormatted)"
-                    v-on="on"
-                  ></v-text-field>
-                </template>
-                <v-date-picker
-                  v-model="date"
-                  no-title
-                  @input="menu1 = false"
-                ></v-date-picker>
-                <v-spacer></v-spacer>
-              </v-dialog>
-            </v-col>
-          </v-card>
-        </v-col>
-      </v-flex> -->
-     
-    <datePicker/>
-  
-  
-     
+      <datePicker />
 
-<div class="selectTime">
-    <selectTime/>
-  
-  </div>
-
-      <!-- <v-flex xs12 md8>
-        <v-col cols="auto" xs12 md8>
-          <v-flex xs12 md12>
-            <v-card light>
-              <v-card-title>select time</v-card-title>
-              <v-divider></v-divider>
-
-              <v-row class="mb-2">
-                <v-col cols="auto" ms12 class="text-center">
-                  <v-btn
-                    class="ma-2"
-                    large
-                    color="#43C677"
-                    dark
-                    v-for="(item, i) in items"
-                    :key="i"
-                    >{{ item.time }}</v-btn
-                  >
-                </v-col>
-              </v-row>
-            </v-card>
-          </v-flex>
-        </v-col>
-      </v-flex> -->
+      <div class="selectTime">
+        <selectTime />
+      </div>
 
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
@@ -175,7 +105,7 @@
           <v-card light>
             <v-card-title>Reservation Information</v-card-title>
             <v-divider></v-divider>
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="12">
               <v-text-field label="Name" single-line></v-text-field>
               <v-text-field label="E-mail" single-line></v-text-field>
               <v-text-field label="Phone" single-line></v-text-field>
@@ -184,41 +114,73 @@
         </v-col>
       </v-flex>
 
-       <v-flex xs12 md8>
+      <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
             <v-card-title>Reservation Details</v-card-title>
             <v-divider></v-divider>
-            <v-col cols="12" sm="6">
+            <v-col cols="12" sm="12">
               <v-text-field label="Date:" single-line></v-text-field>
               <v-text-field label="Time:" single-line></v-text-field>
+              
+              <v-dialog v-model="dialog" width="400">
+                <template v-slot:activator="{ on }">
+                  <v-btn
+                    rounded
+                    block
+                    color="#05BC01"
+                    dark
+                    v-on:click="ConfirmBooking"
+                    v-on="on"
+                    >next</v-btn
+                  >
+                </template>
+                <div class="text-center">
+                  <v-card class="mx-auto" max-width="400">
+                    <v-avatar size="125" tile>
+                      <v-img
+                        src="../assets/icon/confirm.png"
+                        height="100px"
+                        contain
+                      />
+                    </v-avatar>
+                    <v-card-text class="text--primary">
+                      <div>
+                        Green Valley Country Club Bangkok
+                        ได้รับข้อมูลการจองเรียบร้อยแล้วค่ะ
+                        ทางสนามจะส่งผลการจองไปให้ทางไลน์ ของท่านอีกครั้งค่ะ
+                      </div>
+                    </v-card-text>
+                    <div>
+                      <v-btn
+                        rounded
+                        block
+                        color="#05BC01"
+                        dark
+                        v-on:click="ConfirmBooking"
+                        >Confrim</v-btn
+                      >
+                    </div>
+                  </v-card>
+                </div>
+              </v-dialog>
             </v-col>
           </v-card>
         </v-col>
       </v-flex>
-
     </v-layout>
-    
-       <div col="12" md8 sm12> 
-            <v-btn rounded block  x-large color="#05BC01" dark v-on:click="ConfirmBooking">Confirm Your Booking</v-btn>
-          </div>
   </v-container>
 </template>
 
 <script>
-
-import selectTime from '@/components/timeloop.vue'
-import datePicker from '@/components/DatePicker.vue'
-
-
+import selectTime from "@/components/timeloop.vue";
+import datePicker from "@/components/DatePicker.vue";
 
 export default {
   components: {
     selectTime,
     datePicker,
-    
   },
-
 
   data: (vm) => ({
     golfer: [
@@ -229,37 +191,6 @@ export default {
       "5 golfer",
       "6 golfer",
     ],
-    date: new Date().toISOString().substr(0, 10),
-    dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
-    menu1: false,
   }),
-
-  computed: {
-    computedDateFormatted() {
-      return this.formatDate(this.date);
-    },
-  },
-
-  watch: {
-    date(val) {
-      this.dateFormatted = this.formatDate(this.date);
-    },
-  },
-
-  methods: {
-    formatDate(date) {
-      if (!date) return null;
-
-      const [year, month, day] = date.split("-");
-      return `${month}/${day}/${year}`;
-    },
-    parseDate(date) {
-      if (!date) return null;
-
-      const [month, day, year] = date.split("/");
-      return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
-    },
-   
-  },
 };
 </script>

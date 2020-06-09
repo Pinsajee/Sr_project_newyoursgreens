@@ -1,9 +1,17 @@
 <template>
+
+  
+
+
+
+    
   <v-flex xs12 md8>
     <v-col cols="auto" xs12 md8>
       <v-card light>
+          
         <v-card-title>select date</v-card-title>
         <v-divider></v-divider>
+
         <v-col cols="11" sm="5">
           <v-dialog
             ref="menu1"
@@ -36,6 +44,7 @@
       </v-card>
     </v-col>
   </v-flex>
+  
 </template>
 
 <script>
