@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <HelloWorld/>
-    <timeloop/>
+  <timeloop/>
   </div>
 </template>
 
