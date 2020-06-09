@@ -37,7 +37,7 @@ Vue.use(VueRouter)
     component: formedit
   }, {
     path: '/login',
-    name: 'login',
+    name: 'Login',
     component: login
   }
     // route level code-splitting

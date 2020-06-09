@@ -7,11 +7,11 @@
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/login.vue'
+import login from '@/components/login.vue'
 
 
 export default {
-  name: 'login',
+  name: 'Login',
   components: {
     login,
    
