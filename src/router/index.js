@@ -7,6 +7,7 @@ import caddyinfo from '../views/fromcaddy.vue'
 import testloop from '../views/testloop.vue'
 import formedit from '../views/formedit.vue'
 import login from '../views/login.vue'
+import bookingback from '../views/backend/bookingback.vue'
 
 Vue.use(VueRouter)
 
@@ -39,7 +40,11 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'Login',
     component: login
-  }
+  }, {
+    path: '/booking',
+    name: 'bookingback',
+    component: bookingback
+  },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
