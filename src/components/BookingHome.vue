@@ -34,16 +34,6 @@
         </v-col>
       </v-flex>
 
-      <v-flex xs12 md8>
-        <v-col cols="auto" xs12 md8>
-          <v-card light>
-            <v-card-title>search teetime</v-card-title>
-            <v-divider></v-divider>
-            <v-card-subtitle>date</v-card-subtitle>
-          </v-card>
-        </v-col>
-      </v-flex>
-
       <datePicker />
 
       <div class="selectTime">
@@ -122,19 +112,21 @@
             <v-col cols="12" sm="12">
               <v-text-field label="Date:" single-line></v-text-field>
               <v-text-field label="Time:" single-line></v-text-field>
-              
-              <v-dialog v-model="dialog" width="400">
-                <template v-slot:activator="{ on }">
+ <v-row justify="center">
+              <v-dialog v-model="dialog" persistent width="400">
+                <template v-slot:activator="{ on, attrs }">
                   <v-btn
                     rounded
                     block
                     color="#05BC01"
                     dark
-                    v-on:click="ConfirmBooking"
+                    v-bind="attrs"
                     v-on="on"
-                    >next</v-btn
                   >
+                    next
+                  </v-btn>
                 </template>
+                
                 <div class="text-center">
                   <v-card class="mx-auto" max-width="400">
                     <v-avatar size="125" tile>
@@ -150,20 +142,24 @@
                         ได้รับข้อมูลการจองเรียบร้อยแล้วค่ะ
                         ทางสนามจะส่งผลการจองไปให้ทางไลน์ ของท่านอีกครั้งค่ะ
                       </div>
+                      <br />
                     </v-card-text>
-                    <div>
+                    <v-card-action>
                       <v-btn
                         rounded
                         block
                         color="#05BC01"
                         dark
-                        v-on:click="ConfirmBooking"
-                        >Confrim</v-btn
+                        text
+                        @click="dialog = false"
+                        >Confirm</v-btn
                       >
-                    </div>
+                      <br />
+                    </v-card-action>
                   </v-card>
                 </div>
               </v-dialog>
+ </v-row>
             </v-col>
           </v-card>
         </v-col>
@@ -180,17 +176,11 @@ export default {
   components: {
     selectTime,
     datePicker,
+    data() {
+      return {
+        dialog: false,
+      };
+    },
   },
-
-  data: (vm) => ({
-    golfer: [
-      "1 golfer",
-      "2 golfer",
-      "3 golfer",
-      "4 golfer",
-      "5 golfer",
-      "6 golfer",
-    ],
-  }),
 };
 </script>
