@@ -12,7 +12,7 @@
       />
     </div>
     <v-spacer></v-spacer>
-    <span class="mr-2" >Booking</span>
+    
       
     </v-app-bar>
 

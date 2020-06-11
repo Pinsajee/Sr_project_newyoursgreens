@@ -1,14 +1,7 @@
 <template>
-
-  
-
-
-
-    
   <v-flex xs12 md8>
     <v-col cols="auto" xs12 md8>
       <v-card light>
-          
         <v-card-title>select date</v-card-title>
         <v-divider></v-divider>
 
@@ -44,17 +37,13 @@
       </v-card>
     </v-col>
   </v-flex>
-  
 </template>
 
 <script>
 export default {
-    name: "timeloop",
-  
-
+  name: "timeloop",
 
   data: (vm) => ({
-   
     date: new Date().toISOString().substr(0, 10),
     dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
     menu1: false,
@@ -85,7 +74,6 @@ export default {
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     },
-   
   },
 };
 </script>
