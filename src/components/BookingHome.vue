@@ -99,6 +99,16 @@
               <v-text-field label="Name" single-line></v-text-field>
               <v-text-field label="E-mail" single-line></v-text-field>
               <v-text-field label="Phone" single-line></v-text-field>
+              <v-btn
+                    rounded
+                    block
+                    color="#05BC01"
+                    dark
+                    v-bind="attrs"
+                    v-on="on"
+                  >
+                    next
+                  </v-btn>
             </v-col>
           </v-card>
         </v-col>
@@ -112,7 +122,7 @@
             <v-col cols="12" sm="12">
               <v-text-field label="Date:" single-line></v-text-field>
               <v-text-field label="Time:" single-line></v-text-field>
- <v-row justify="center">
+              <v-row justify="center">
               <v-dialog v-model="dialog" persistent width="400">
                 <template v-slot:activator="{ on, attrs }">
                   <v-btn
