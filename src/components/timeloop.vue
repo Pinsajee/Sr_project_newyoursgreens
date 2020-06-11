@@ -1,29 +1,32 @@
 <<template>
-<v-flex xs12 md8>
-        <v-col cols="auto" xs12 md8>
-         
-            <v-card light>
-              <v-card-title>select time</v-card-title>
-              <v-divider></v-divider>
+  <v-flex xs12 md8>
+    <v-col cols="auto" xs12 md8>
+      <v-card light>
+        <v-card-title>select time</v-card-title>
+        <v-divider></v-divider>
+ 
+        <v-row class="mb-2">
+          <v-col cols="auto" ms12 class="text-center">
+            <v-hover
+        
+            <v-btn
+            @click="show = !show"
+              v-model="gettime"
+              class="ma-2"
+              large
+              color="#43C677"
+              dark
+              v-for="(item, i) in items"
+              :key="i"
+              >{{ item.time }}
+            </v-btn>
 
-              <v-row class="mb-2">
-                <v-col cols="auto" ms12 class="text-center">
-                  <v-btn
-                    class="ma-2"
-                    large
-                    color="#43C677"
-                    dark
-                    v-for="(item, i) in items"
-                    :key="i"
-                    >{{ item.time }}</v-btn
-                  >
-                </v-col>
-              </v-row>
-            </v-card>
-         
-        </v-col>
-      </v-flex>
-
+          </v-col>
+        </v-row>
+        
+      </v-card>
+    </v-col>
+  </v-flex>
 </template>
 
 <script>
@@ -31,7 +34,10 @@ export default {
   name: "timeloop",
 
   data: () => ({
-      items: [
+   
+        show: false,
+      
+    items: [
       {
         time: "08:10",
       },

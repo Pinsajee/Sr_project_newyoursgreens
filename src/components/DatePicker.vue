@@ -1,7 +1,11 @@
 <template>
   <v-flex xs12 md8>
     <v-col cols="auto" xs12 md8>
-      <v-card light>
+       <v-hover
+        v-slot:default="{ hover }"
+        open-delay="200"
+      >
+      <v-card light :elevation="hover ? 12 : 2">
         <v-card-title>select date</v-card-title>
         <v-divider></v-divider>
 
@@ -32,16 +36,18 @@
               no-title
               @input="menu1 = false"
             ></v-date-picker>
-            
+
             <v-spacer></v-spacer>
           </v-dialog>
         </v-col>
       </v-card>
+       </v-hover>
     </v-col>
   </v-flex>
 </template>
 
 <script>
+import { db } from "../database/databaseconfig";
 export default {
   name: "timeloop",
 
@@ -50,6 +56,9 @@ export default {
     dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
     menu1: false,
   }),
+  methods() {
+    async.getEvents();
+  },
 
   computed: {
     computedDateFormatted() {
