@@ -14,4 +14,5 @@ const mywebapp = initializeApp({
 export const database = mywebapp.database();
 export const comments = database.ref("comments");
 export const caddyinfo = database.ref("caddy");
+export const bookingbycustomers = database.ref("bookingbycustomers");
 export const databaseURL = "https://yourgreensystem.firebaseio.com/.json";
