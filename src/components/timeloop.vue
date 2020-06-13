@@ -30,6 +30,8 @@
 </template>
 
 <script>
+
+
 export default {
   name: "timeloop",
 
@@ -72,7 +74,9 @@ export default {
         time: "10:30",
       },
       {
-        time: "10:44",
+       
+       
+       time: "10:44",
       },
       {
         time: "10:58",
@@ -85,4 +89,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+.v-btn::before {
+    color: transparent
+}
+
+.v-btn:hover {
+    color:aqua;
+}
+
+
+</style
+>
