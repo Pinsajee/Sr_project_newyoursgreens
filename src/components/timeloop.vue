@@ -14,7 +14,7 @@
       <v-col class="d-flex" cols="6" sm="6">
         <v-select
           :items="time"
-          label="Solo field"
+          label="teetime"
           dense
           solo
         ></v-select>
