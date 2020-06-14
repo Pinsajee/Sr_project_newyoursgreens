@@ -36,14 +36,15 @@
               no-title
               @input="menu1 = false"
             ></v-date-picker>
-
             <v-spacer></v-spacer>
           </v-dialog>
         </v-col>
       </v-card>
-       </v-hover>
+</v-hover>
     </v-col>
   </v-flex>
+
+  
 </template>
 
 <script>

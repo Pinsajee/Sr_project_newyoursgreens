@@ -7,7 +7,7 @@
  
         <v-row class="mb-2">
           <v-col cols="auto" ms12 class="text-center">
-            <v-hover
+            
         
             <v-btn
             @click="show = !show"
@@ -74,8 +74,6 @@ export default {
         time: "10:30",
       },
       {
-       
-       
        time: "10:44",
       },
       {
@@ -97,8 +95,8 @@ export default {
 
 .v-btn:hover {
     color:aqua;
+    background: aqua;
 }
-
 
 </style
 >

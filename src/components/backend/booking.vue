@@ -1,19 +1,16 @@
 <template>
   <v-card
-    
-    max-width="300"
-    tile
+    class="mx-auto"
+    max-width="500"
+
   >
-    <v-list dense>
-      <v-subheader>manu</v-subheader>
-      <v-list-item-group v-model="item" color="primary">
+    <v-list>
+      <v-list-item-group v-model="model">
         <v-list-item
           v-for="(item, i) in items"
           :key="i"
+          :disabled="item.disabled"
         >
-          <v-list-item-icon>
-            <v-icon v-text="item.icon"></v-icon>
-          </v-list-item-icon>
           <v-list-item-content>
             <v-list-item-title v-text="item.text"></v-list-item-title>
           </v-list-item-content>
@@ -26,12 +23,24 @@
 <script>
   export default {
     data: () => ({
-      item: 1,
       items: [
-        { text: 'booking', icon: 'mdi-clock' },
-        { text: 'Audience', icon: 'mdi-account' },
-        { text: 'Conversions', icon: 'mdi-flag' },
+        {
+          text: 'Teetime',
+        },
+        {
+          text: 'Caddy',
+        },
+        {
+          text: 'Member',
+        }, 
+        {
+          text: 'Golf cart',
+        },  
+         {
+          text: 'Starter',
+        },
       ],
+      model: 0,
     }),
   }
 </script>

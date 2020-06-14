@@ -100,15 +100,15 @@
               <v-text-field label="E-mail" single-line></v-text-field>
               <v-text-field label="Phone" single-line></v-text-field>
               <v-btn
-                    rounded
-                    block
-                    color="#05BC01"
-                    dark
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    next
-                  </v-btn>
+                rounded
+                block
+                color="#05BC01"
+                dark
+                v-bind="attrs"
+                v-on="on"
+              >
+                next
+              </v-btn>
             </v-col>
           </v-card>
         </v-col>
@@ -123,53 +123,46 @@
               <v-text-field label="Date:" single-line></v-text-field>
               <v-text-field label="Time:" single-line></v-text-field>
               <v-row justify="center">
-              <v-dialog v-model="dialog" persistent width="400">
-                <template v-slot:activator="{ on, attrs }">
-                  <v-btn
-                    rounded
-                    block
-                    color="#05BC01"
-                    dark
-                    v-bind="attrs"
-                    v-on="on"
-                  >
-                    next
-                  </v-btn>
-                </template>
-                
-                <div class="text-center">
-                  <v-card class="mx-auto" max-width="400">
-                    <v-avatar size="125" tile>
-                      <v-img
-                        src="../assets/icon/confirm.png"
-                        height="100px"
-                        contain
-                      />
-                    </v-avatar>
-                    <v-card-text class="text--primary">
-                      <div>
-                        Green Valley Country Club Bangkok
-                        ได้รับข้อมูลการจองเรียบร้อยแล้วค่ะ
-                        ทางสนามจะส่งผลการจองไปให้ทางไลน์ ของท่านอีกครั้งค่ะ
-                      </div>
-                      <br />
-                    </v-card-text>
-                    <v-card-action>
-                      <v-btn
-                        rounded
-                        block
-                        color="#05BC01"
-                        dark
-                        text
-                        @click="dialog = false"
-                        >Confirm</v-btn
-                      >
-                      <br />
-                    </v-card-action>
-                  </v-card>
-                </div>
-              </v-dialog>
- </v-row>
+                <v-dialog v-model="dialog" persistent width="400">
+                  <template v-slot:activator="{ on, attrs }">
+                    <v-btn
+                      rounded
+                      block
+                      color="#05BC01"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                    >
+                      next
+                    </v-btn>
+                  </template>
+
+                  <div class="text-center">
+                    <v-card class="mx-auto" max-width="400">
+                      <v-avatar size="125" tile>
+                        <v-img
+                          src="../assets/icon/confirm.png"
+                          height="100px"
+                          contain
+                        />
+                      </v-avatar>
+                      <v-card-text class="text--primary">
+                        <div>
+                          Green Valley Country Club Bangkok
+                          ได้รับข้อมูลการจองเรียบร้อยแล้วค่ะ
+                          ทางสนามจะส่งผลการจองไปให้ทางไลน์ ของท่านอีกครั้งค่ะ
+                        </div>
+                      </v-card-text>
+                      <v-card-action>
+                        <v-spacer></v-spacer>
+                        <v-btn text color="primary" @click="dialog = false"
+                          >Submit</v-btn
+                        >
+                      </v-card-action>
+                    </v-card>
+                  </div>
+                </v-dialog>
+              </v-row>
             </v-col>
           </v-card>
         </v-col>
@@ -188,7 +181,7 @@ export default {
     datePicker,
     data() {
       return {
-        dialog: false,
+        test: dialog,
       };
     },
   },
