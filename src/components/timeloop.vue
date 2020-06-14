@@ -12,7 +12,7 @@
         <v-subheader>Teetime</v-subheader>
       </v-col>
       <v-col class="d-flex" cols="6" sm="6">
-        <v-select
+        <v-select v-model="selecttime"
           :items="time"
           label="teetime"
           dense

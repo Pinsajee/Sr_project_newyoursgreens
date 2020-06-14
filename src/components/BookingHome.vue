@@ -52,7 +52,7 @@
                     <h4>Golfer</h4>
                   </v-col>
                   <v-col cols="6">
-                    <v-select
+                    <v-select v-model="golfers"
                       :items="golfer"
                       label="0 golfer"
                       dense
@@ -72,9 +72,9 @@
             <v-card-title>Reservation Information</v-card-title>
             <v-divider></v-divider>
             <v-col cols="12" sm="12">
-              <v-text-field label="Name" single-line></v-text-field>
-              <v-text-field label="E-mail" single-line></v-text-field>
-              <v-text-field label="Phone" single-line></v-text-field>
+              <v-text-field v-model="name" label="Name" single-line></v-text-field>
+              <v-text-field v-model="email" label="E-mail" single-line></v-text-field>
+              <v-text-field v-model="phone" label="Phone" single-line></v-text-field>
             </v-col>
           </v-card>
         </v-col>
@@ -121,7 +121,7 @@
                       </v-card-text>
                       <v-card-action>
                         <v-spacer></v-spacer>
-                        <v-btn text color="primary" @click="dialog = false"
+                        <v-btn v-on:click="addbooking" text color="primary" @click="dialog = false"
                           >Submit</v-btn
                         >
                       </v-card-action>
@@ -140,6 +140,7 @@
 <script>
 import selectTime from "@/components/timeloop.vue";
 import datePicker from "@/components/DatePicker.vue";
+import { booking } from "../database/databaseconfig";
 
 export default {
   data: () => ({
@@ -151,10 +152,25 @@ export default {
       "5 golfer",
       "6 golfer",
     ],
-  }),
+
+  }
+  ),
   components: {
     selectTime,
     datePicker,
   },
+
+    methods: {
+    addbooking() {
+      booking.push({
+        date: this.date,
+        time: this.selectTime,
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        golfers: this.golfers
+      });
+    }
+  }
 };
 </script>
