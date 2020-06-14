@@ -36,9 +36,9 @@
 
       <datePicker />
 
-      <div class="selectTime">
+     
         <selectTime />
-      </div>
+      
 
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
@@ -49,31 +49,7 @@
               <div>
                 <v-row align="center" class="mb-2">
                   <v-col cols="6">
-                    <h4>Member</h4>
-                  </v-col>
-                  <v-col cols="6">
-                    <v-select
-                      :items="golfer"
-                      label="0 golfer"
-                      dense
-                      solo
-                    ></v-select>
-                  </v-col>
-
-                  <v-col cols="6">
-                    <h4>Visitor</h4>
-                  </v-col>
-                  <v-col cols="6">
-                    <v-select
-                      :items="golfer"
-                      label="0 golfer"
-                      dense
-                      solo
-                    ></v-select>
-                  </v-col>
-
-                  <v-col cols="6">
-                    <h4>Guess</h4>
+                    <h4>Golfer</h4>
                   </v-col>
                   <v-col cols="6">
                     <v-select
@@ -99,16 +75,6 @@
               <v-text-field label="Name" single-line></v-text-field>
               <v-text-field label="E-mail" single-line></v-text-field>
               <v-text-field label="Phone" single-line></v-text-field>
-              <v-btn
-                rounded
-                block
-                color="#05BC01"
-                dark
-                v-bind="attrs"
-                v-on="on"
-              >
-                next
-              </v-btn>
             </v-col>
           </v-card>
         </v-col>
@@ -176,14 +142,19 @@ import selectTime from "@/components/timeloop.vue";
 import datePicker from "@/components/DatePicker.vue";
 
 export default {
+  data: () => ({
+    golfer: [
+      "1 golfer",
+      "2 golfer",
+      "3 golfer",
+      "4 golfer",
+      "5 golfer",
+      "6 golfer",
+    ],
+  }),
   components: {
     selectTime,
     datePicker,
-    data() {
-      return {
-        test: dialog,
-      };
-    },
   },
 };
 </script>
