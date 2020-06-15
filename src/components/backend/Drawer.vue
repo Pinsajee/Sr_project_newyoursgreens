@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer id="app-drawer" class=" lighten-1"  permanent>
+  <v-navigation-drawer id="app-drawer" class=" lighten-1" dark permanent>
     <v-list>
       <v-list-item v-for="item in items" :key="item.title" link>
         <v-list-item-icon>
