@@ -13,9 +13,7 @@
     </div>
     <v-spacer></v-spacer>
    
-    <v-btn></v-btn>
-    <v-btn></v-btn>
-    <v-btn></v-btn>
+    
       
     </v-app-bar>
 
