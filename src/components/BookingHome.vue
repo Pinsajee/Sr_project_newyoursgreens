@@ -83,8 +83,18 @@
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
+            <v-card-title>Your Booking</v-card-title>
             <v-divider></v-divider>
             <v-col cols="12" sm="12">
+              <div class="mt-5 text-left">
+                Date: {{date}}<br><br>
+                Time: {{time}}<br><br>
+                Name: {{name}}<br><br>
+                Golfers: {{golfers}}<br><br>
+                E-mail: {{email}}<br><br>
+                Phone: {{phone}}<br><br>
+              </div>
+
               <v-row justify="center">
                 <v-dialog v-model="dialog" persistent width="400">
                   <template v-slot:activator="{ on, attrs }">
