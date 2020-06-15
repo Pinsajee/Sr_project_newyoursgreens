@@ -83,11 +83,8 @@
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
-            <v-card-title>Reservation Details</v-card-title>
             <v-divider></v-divider>
             <v-col cols="12" sm="12">
-              <v-text-field label="Date:" single-line></v-text-field>
-              <v-text-field label="Time:" single-line></v-text-field>
               <v-row justify="center">
                 <v-dialog v-model="dialog" persistent width="400">
                   <template v-slot:activator="{ on, attrs }">
@@ -116,7 +113,6 @@
                         <div>
                           Green Valley Country Club Bangkok
                           ได้รับข้อมูลการจองเรียบร้อยแล้วค่ะ
-                          ทางสนามจะส่งผลการจองไปให้ทางไลน์ ของท่านอีกครั้งค่ะ
                         </div>
                       </v-card-text>
                       <v-card-action>
@@ -143,8 +139,9 @@ import datePicker from "@/components/DatePicker.vue";
 import { booking } from "../database/databaseconfig";
 
 export default {
-  data: () => ({
-    golfer: [
+   data() {
+      return {
+      golfer: [
       "1 golfer",
       "2 golfer",
       "3 golfer",
@@ -152,9 +149,15 @@ export default {
       "5 golfer",
       "6 golfer",
     ],
-
-  }
-  ),
+        date: null,
+        time: null,
+        name: "",
+        email: "",
+        phone: "",
+        golfers: null,
+        bookingArray: []
+      };
+  },
   components: {
     selectTime,
     datePicker,
@@ -163,8 +166,6 @@ export default {
     methods: {
     addbooking() {
       booking.push({
-        date: this.date,
-        time: this.selectTime,
         name: this.name,
         email: this.email,
         phone: this.phone,
