@@ -10,7 +10,7 @@
               <v-subheader>Teetime</v-subheader>
             </v-col>
             <v-col class="d-flex" cols="6" sm="6">
-              <v-select :items="time" label="teetime" dense solo></v-select>
+              <v-select v-model="selecttime" :items="time" label="teetime" dense solo></v-select>
             </v-col>
             
             <!-- <v-btn
