@@ -88,7 +88,7 @@
             <v-col cols="12" sm="12">
               <div class="mt-5 text-left">
                 Date: {{date}}<br><br>
-                Time: {{time}}<br><br>
+                Time: {{selecttime}}<br><br>
                 Name: {{name}}<br><br>
                 Golfers: {{golfers}}<br><br>
                 E-mail: {{email}}<br><br>
@@ -182,6 +182,14 @@ export default {
         golfers: this.golfers
       });
     }
-  }
-};
+  },
+
+  created() {
+    booking.on("child_added", snapshot => {
+      this.bookingArray.push({ ...snapshot.val(), id: snapshot.key });
+      console.log(snapshot.key);
+    });
+  
+ 
+}};
 </script>
