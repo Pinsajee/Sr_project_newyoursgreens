@@ -52,7 +52,7 @@
                     <h4>Golfer</h4>
                   </v-col>
                   <v-col cols="6">
-                    <v-select
+                    <v-select v-model="golfers"
                       :items="golfer"
                       label="0 golfer"
                       dense
@@ -72,9 +72,9 @@
             <v-card-title>Reservation Information</v-card-title>
             <v-divider></v-divider>
             <v-col cols="12" sm="12">
-              <v-text-field label="Name" single-line></v-text-field>
-              <v-text-field label="E-mail" single-line></v-text-field>
-              <v-text-field label="Phone" single-line></v-text-field>
+              <v-text-field v-model="name" label="Name" single-line></v-text-field>
+              <v-text-field v-model="email" label="E-mail" single-line></v-text-field>
+              <v-text-field v-model="phone" label="Phone" single-line></v-text-field>
             </v-col>
           </v-card>
         </v-col>
@@ -83,11 +83,8 @@
       <v-flex xs12 md8>
         <v-col cols="auto" xs12 md8>
           <v-card light>
-            <v-card-title>Reservation Details</v-card-title>
             <v-divider></v-divider>
             <v-col cols="12" sm="12">
-              <v-text-field label="Date:" single-line></v-text-field>
-              <v-text-field label="Time:" single-line></v-text-field>
               <v-row justify="center">
                 <v-dialog v-model="dialog" persistent width="400">
                   <template v-slot:activator="{ on, attrs }">
@@ -116,12 +113,11 @@
                         <div>
                           Green Valley Country Club Bangkok
                           ได้รับข้อมูลการจองเรียบร้อยแล้วค่ะ
-                          ทางสนามจะส่งผลการจองไปให้ทางไลน์ ของท่านอีกครั้งค่ะ
                         </div>
                       </v-card-text>
                       <v-card-action>
                         <v-spacer></v-spacer>
-                        <v-btn text color="primary" @click="dialog = false"
+                        <v-btn v-on:click="addbooking" text color="primary" @click="dialog = false"
                           >Submit</v-btn
                         >
                       </v-card-action>
@@ -140,10 +136,12 @@
 <script>
 import selectTime from "@/components/timeloop.vue";
 import datePicker from "@/components/DatePicker.vue";
+import { booking } from "../database/databaseconfig";
 
 export default {
-  data: () => ({
-    golfer: [
+   data() {
+      return {
+      golfer: [
       "1 golfer",
       "2 golfer",
       "3 golfer",
@@ -151,10 +149,29 @@ export default {
       "5 golfer",
       "6 golfer",
     ],
-  }),
+        date: null,
+        time: null,
+        name: "",
+        email: "",
+        phone: "",
+        golfers: null,
+        bookingArray: []
+      };
+  },
   components: {
     selectTime,
     datePicker,
   },
+
+    methods: {
+    addbooking() {
+      booking.push({
+        name: this.name,
+        email: this.email,
+        phone: this.phone,
+        golfers: this.golfers
+      });
+    }
+  }
 };
 </script>
