@@ -1,4 +1,5 @@
 <template>
+<v-col col="4">
   <v-card
     class="mx-auto"
     max-width="500"
@@ -18,6 +19,7 @@
       </v-list-item-group>
     </v-list>
   </v-card>
+</v-col>
 </template>
 
 <script>
@@ -32,11 +34,8 @@
         },
         {
           text: 'Member',
-        }, 
+        },   
         {
-          text: 'Golf cart',
-        },  
-         {
           text: 'Starter',
         },
       ],
