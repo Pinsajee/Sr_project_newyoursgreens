@@ -50,7 +50,7 @@ Vue.use(VueRouter)
     name: 'memberinfo',
     component: memberinfo
   },{
-    path: '/memberedit',
+    path: '/memberedit/:id',
     name: 'memberedit',
     component: memberedit
   },
