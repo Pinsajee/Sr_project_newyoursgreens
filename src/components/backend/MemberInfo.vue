@@ -50,7 +50,7 @@
         <!--form members -->
 
         <v-form ref="form" lazy-validation @submit.prevent="submit" onsubmit="return false;">
-          <v-text-field v-model="number" label="Number" required></v-text-field>
+          <v-text-field v-model="number" :counter="3" label="Code" required></v-text-field>
 
           <v-text-field v-model="firstname" label="Firstname" required></v-text-field>
 
@@ -91,12 +91,12 @@ export default {
         number: this.number,
         firstname: this.firstname,
         lastname: this.lastname,
-        address: this.address,
+        address: this.nickname,
         tel: this.tel
       });
     },
     deleteinfo(infoMember) {
-      members.child(infoMember.id).remove();
+      infoMember.child(infoMember.id).remove();
     },
     CancelEdit() {}
   },
