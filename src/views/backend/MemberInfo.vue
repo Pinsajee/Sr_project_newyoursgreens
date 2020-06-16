@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <memberinfo />
+    <memberinfo/>
+  <timeloop/>
   </div>
 </template>
 

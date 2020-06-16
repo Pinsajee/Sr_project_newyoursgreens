@@ -8,6 +8,7 @@ import testloop from '../views/testloop.vue'
 import formedit from '../views/formedit.vue'
 import login from '../views/login.vue'
 import bookingback from '../views/backend/bookingback.vue'
+import memberinfo from '../views/backend/MemberInfo.vue'
 
 Vue.use(VueRouter)
 
@@ -44,6 +45,10 @@ Vue.use(VueRouter)
     path: '/booking',
     name: 'bookingback',
     component: bookingback
+  }, {
+    path: '/memberinfo',
+    name: 'memberinfo',
+    component: memberinfo
   },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
