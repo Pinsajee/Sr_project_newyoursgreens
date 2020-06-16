@@ -13,7 +13,7 @@ const mywebapp = initializeApp({
 
 export const database = mywebapp.database();
 export const comments = database.ref("comments");
-export const caddyinfo = database.ref("caddy").orderByChild('code');
+export const caddyinfo = database.ref("caddy")
 export const booking = database.ref("booking");
-export const members = database.ref("members").orderByChild('number');
+export const members = database.ref("members")
 export const databaseURL = "https://yourgreensystem.firebaseio.com/.json";
