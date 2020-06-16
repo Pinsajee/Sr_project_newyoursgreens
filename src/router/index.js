@@ -9,7 +9,7 @@ import formedit from '../views/formedit.vue'
 import login from '../views/login.vue'
 import bookingback from '../views/backend/bookingback.vue'
 import memberinfo from '../views/backend/MemberInfo.vue'
-
+import memberedit from '../views/backend/MemberEdit.vue'
 Vue.use(VueRouter)
 
   const routes = [
@@ -49,6 +49,10 @@ Vue.use(VueRouter)
     path: '/memberinfo',
     name: 'memberinfo',
     component: memberinfo
+  },{
+    path: '/memberedit',
+    name: 'memberedit',
+    component: memberedit
   },
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
