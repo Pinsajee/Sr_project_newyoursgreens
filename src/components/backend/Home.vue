@@ -1,13 +1,22 @@
 <template>
-  <Drawer />
+<v-app>
+  
+<Drawer/>
+
+  
+
+</v-app>
 </template>
- 
+
 <script>
 import Drawer from '../backend/Drawer';
-
 export default {
-  components: {
+ components: {
     Drawer,
   },
-};
+}
 </script>
+
+<style>
+
+</style>

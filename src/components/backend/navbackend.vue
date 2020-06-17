@@ -9,7 +9,7 @@
                  contain 
                   class=" darken-5"></v-img>
                   <br>
-                  <h4  >Green Valley Country Club Bangkok</h4>
+                  <h4>Green Valley Country Club Bangkok</h4>
                   <br>
               </v-list-tile-avatar>
             </v-list-tile>

@@ -10,6 +10,8 @@ import login from '../views/login.vue'
 import bookingback from '../views/backend/bookingback.vue'
 import memberinfo from '../views/backend/MemberInfo.vue'
 import memberedit from '../views/backend/MemberEdit.vue'
+import HomeBE from '../views/backend/HomeBE.vue'
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -17,6 +19,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/Home',
+    name: 'Home',
+    component: HomeBE
   },
   {
     path: '/frominput',

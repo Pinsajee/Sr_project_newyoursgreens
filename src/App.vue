@@ -3,6 +3,7 @@
 
     <v-content>
       <navigation/>
+      
       <router-view/>
     </v-content>
     
@@ -13,11 +14,13 @@
 import navigation from './components/navigation';
 
 
+
 export default {
   name: 'App',
 
   components: {
     navigation,
+    
     
   },
 

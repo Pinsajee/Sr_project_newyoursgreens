@@ -1,5 +1,5 @@
 <template>
-
+<v-app>
   <v-app-bar app color="#0F7D63" darken-3>
     <div class="d-flex align-center">
       <v-img
@@ -25,7 +25,10 @@
        -->
 
     </v-app-bar>
-
+    <v-footer fixed>
+      <span>Vuetify $copy; 2020</span>
+    </v-footer>
+</v-app>
 </template>
 
 

@@ -1,19 +1,19 @@
 <template>
   <div class="home">
-    <bookingPage/>
- 
+    <Homeback/>
+
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import bookingPage from '@/components/BookingHome.vue'
+import Homeback from '@/components/backend/Home.vue'
 
 
 export default {
   name: 'Home',
   components: {
-    bookingPage,
+    Homeback,
    
   }
 }
