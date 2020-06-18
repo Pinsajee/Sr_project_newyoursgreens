@@ -1,7 +1,14 @@
 <template>
 <v-app>
   <Drawer/>
-  
+   <div>
+ <v-img
+              :src="require('../../assets/golflogo.jpg')"
+              height="70"
+              contain
+              class=" darken-5"
+            ></v-img>
+  </div>
 
   
 

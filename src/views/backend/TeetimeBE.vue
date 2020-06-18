@@ -1,13 +1,17 @@
 <template>
-   <div class="teetime">
+  <div class="home">
     <Teetime/>
   </div>
+ 
 </template>
 
 <script>
+// @ is an alias to /src
 import Teetime from '@/components/backend/Teetime.vue'
+
+
 export default {
-name: 'Teetime',
+  name: 'Home',
   components: {
     Teetime,
    
@@ -15,7 +19,3 @@ name: 'Teetime',
   }
 }
 </script>
-
-<style>
-
-</style>

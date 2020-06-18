@@ -2,8 +2,8 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import frominput from '../views/frominput.vue'
-import caddyinfo from '../views/fromcaddy.vue'
+import frominput from  '../views/fromcaddy.vue'
+import caddyinfo from '../views/frominput.vue'
 import testloop from '../views/testloop.vue'
 import formedit from '../views/formedit.vue'
 import login from '../views/login.vue'
@@ -11,7 +11,8 @@ import bookingback from '../views/backend/bookingback.vue'
 import memberinfo from '../views/backend/MemberInfo.vue'
 import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
-import Teetime from '../views/backend/TeetimeBackend.vue'
+import Teetime from '../views/backend/TeetimeBE.vue'
+
 
 
 Vue.use(VueRouter)
@@ -23,14 +24,14 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/Home',
-    name: 'Home',
-    component: HomeBE
-  },
-  {
     path: '/Teetime',
     name: 'Teetime',
     component: Teetime
+  },
+  {
+    path: '/Home',
+    name: 'Home',
+    component: HomeBE
   },
   {
     path: '/frominput',

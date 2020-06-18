@@ -2,8 +2,7 @@
   <div class="home">
     <Homeback/>
   </div>
-
-
+ 
 </template>
 
 <script>

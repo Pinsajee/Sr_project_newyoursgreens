@@ -1,12 +1,15 @@
 <template>
 <v-app>
- <Drawer/>
-<v-row>
-  <v-flex xs12 md8>
+    <Drawer/>
+    <v-container>
+     <v-flex xs12 md8>
     <v-col cols="auto" xs12 md8>
-      
-      <v-card>
-        <v-card-title></v-card-title>
+       <v-hover
+        v-slot:default="{ hover }"
+        open-delay="200"
+      >
+      <v-card light :elevation="hover ? 12 : 2">
+        <v-card-title>select date</v-card-title>
         <v-divider></v-divider>
 
         <v-col cols="11" sm="5">
@@ -40,69 +43,54 @@
           </v-dialog>
         </v-col>
       </v-card>
-
+</v-hover>
     </v-col>
   </v-flex>
 
-  <v-card>
-<v-card-title>
-  testt
-</v-card-title>
-  </v-card>
+  <v-flex xs12 md8>
+    <v-col cols="auto" xs12 md8>
+      <v-card light>
+        <v-card-title>select time</v-card-title>
 
-
- 
-</v-row>
-  </v-app>
+        <v-col cols="auto" ms12 class="text-center">
+          <v-row align="center" class="mb-2">
+            <v-col cols="6">
+              <v-subheader>Teetime</v-subheader>
+            </v-col>
+            <v-col class="d-flex" cols="6" sm="6">
+              <v-select v-model="selecttime" :items="time" label="teetime" dense solo></v-select>
+            </v-col>
+            
+            <!-- <v-btn
+            @click="show = !show"
+              v-model="gettime"
+              class="ma-2"
+              large
+              color="#43C677"
+              dark
+              v-for="(item, i) in items"
+              :key="i"
+              >{{ item.time }}
+            </v-btn> -->
+          </v-row>
+        </v-col>
+      </v-card>
+    </v-col>
+  </v-flex>
+    </v-container>
+</v-app>
+  
 </template>
 
 <script>
-  import Drawer from '../backend/Drawer'
+import Drawer from '../backend/Drawer';
 export default {
-
-  name: "teetime",
-  components: {
-    // selectTime,
+components:{
     Drawer,
-  
-  },
-
-  data: (vm) => ({
-    date: new Date().toISOString().substr(0, 10),
-    dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
-    menu1: false,
-  }),
-  methods() {
-    async.getEvents();
-  },
-
-  computed: {
-    computedDateFormatted() {
-      return this.formatDate(this.date);
-    },
-  },
-
-  watch: {
-    date(val) {
-      this.dateFormatted = this.formatDate(this.date);
-    },
-  },
-
-  methods: {
-    formatDate(date) {
-      if (!date) return null;
-
-      const [year, month, day] = date.split("-");
-      return `${month}/${day}/${year}`;
-    },
-    parseDate(date) {
-      if (!date) return null;
-
-      const [month, day, year] = date.split("/");
-      return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
-    },
-  },
-};
+}
+}
 </script>
 
-<style></style>
+<style>
+
+</style>

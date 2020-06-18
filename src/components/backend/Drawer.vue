@@ -1,6 +1,6 @@
 <template>
   <nav>
-    <v-toolbar app  color="#0F7D63" dark>
+    <v-toolbar app color="#0F7D63" dark>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase gray--text">
         <span class="font-weight-light">YourGreen</span>
@@ -39,7 +39,8 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            <v-list-item-title>{{ item.title }}</v-list-item-title>
+            
+            <v-list-item-title :to="item.route">{{ item.title }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -54,19 +55,16 @@
 <script>
 export default {
   name: "Drawer",
-props: ['drawer'],
+  props: ["drawer"],
   data() {
     return {
       items: [
-        { title: "Home", 
-          icon: "dashboard",
-          route: '/Home',},
-        { title: "Teetime", icon: "dashboard",  route: '/Teetime'},
-        { title: "Caddy", icon: "account_box",route: '/Caddy' },
-        { title: "Member", icon: "gavel" ,route: '/memberinfo'},
+        { title: "Home", icon: "home", route: "/Home" },
+        { title: "Teetime", icon: "dashboard", route: "/Teetime" },
+        { title: "Caddy", icon: "account_box", route: "/Caddyinfo" },
+        { title: "Member", icon: "account_box", route: "/memberinfo" },
       ],
     };
-    
   },
 };
 </script>
