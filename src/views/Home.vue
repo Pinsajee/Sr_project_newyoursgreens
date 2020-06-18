@@ -1,5 +1,6 @@
 <template>
-  <div class="home">
+ <div class="home">
+   <navigation/>
     <bookingPage/>
  
   </div>
@@ -8,12 +9,14 @@
 <script>
 // @ is an alias to /src
 import bookingPage from '@/components/BookingHome.vue'
+import navigation from '@/components/navigation.vue'
 
 
 export default {
   name: 'Home',
   components: {
     bookingPage,
+    navigation,
    
   }
 }

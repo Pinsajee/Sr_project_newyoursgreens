@@ -1,8 +1,9 @@
 <template>
   <div class="home">
     <Homeback/>
-
   </div>
+
+
 </template>
 
 <script>
@@ -14,6 +15,7 @@ export default {
   name: 'Home',
   components: {
     Homeback,
+   
    
   }
 }

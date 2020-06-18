@@ -1,9 +1,6 @@
 <template>
   <v-app>
-
-    <v-content>
-      <navigation/>
-      
+<v-content>
       <router-view/>
     </v-content>
     
@@ -12,9 +9,6 @@
 
 <script>
 import navigation from './components/navigation';
-
-
-
 export default {
   name: 'App',
 

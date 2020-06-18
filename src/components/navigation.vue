@@ -1,6 +1,5 @@
 <template>
-
-  <v-app-bar app color="#0F7D63" darken-3>
+  <v-app-bar app color="#0F7D63" dark>
     <div class="d-flex align-center">
       <v-img
         :src="require('../assets/logow.png')"
@@ -11,7 +10,7 @@
         width="50"
       />
     </div>
-   <v-spacer></v-spacer>
+    <v-spacer></v-spacer>
     <!-- <v-toolbar-items center>
          <v-btn
          color="#0F7D63"
@@ -23,18 +22,14 @@
          >{{ item.text }}</v-btn>
         </v-toolbar-items>
        -->
-
-    </v-app-bar>
-
+  </v-app-bar>
 </template>
 
-
-
 <script>
-  export default {
-       name: "navigation",
-    
-      data: () => ({
+export default {
+  name: "navigation",
+
+  data: () => ({
     //  nav: [
     //     {
     //       icon: 'home',
@@ -61,10 +56,8 @@
     //       active: false
     //     }
     //   ]
-  })
+  }),
 };
 </script>
 
-<style >
-
-</style>
+<style></style>

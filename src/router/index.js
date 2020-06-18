@@ -11,6 +11,8 @@ import bookingback from '../views/backend/bookingback.vue'
 import memberinfo from '../views/backend/MemberInfo.vue'
 import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
+import Teetime from '../views/backend/TeetimeBackend.vue'
+
 
 Vue.use(VueRouter)
 
@@ -24,6 +26,11 @@ Vue.use(VueRouter)
     path: '/Home',
     name: 'Home',
     component: HomeBE
+  },
+  {
+    path: '/Teetime',
+    name: 'Teetime',
+    component: Teetime
   },
   {
     path: '/frominput',
