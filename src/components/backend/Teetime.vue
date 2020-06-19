@@ -83,7 +83,7 @@
                                 </v-col>
                                 <v-col cols="12">
                                   <v-text-field
-                                    label="Email*" v-model="Email"
+                                    label="Email*" v-model="email"
                                     required
                                   ></v-text-field>
                                 </v-col>
@@ -120,10 +120,10 @@
                               >Close</v-btn
                             >
                             <v-btn
-                              v-model="booking"
                               color="blue darken-1"
                               text
                               @click="dialog = false"
+                              v-on:click="addbooking"
                               >Save</v-btn
                             >
                           </v-card-actions>
@@ -153,6 +153,7 @@
 
 <script>
 import Drawer from "../backend/Drawer";
+import { booking } from "../../database/databaseconfig";
 export default {
   components: {
     Drawer,
@@ -194,7 +195,21 @@ export default {
      
       ]
   }
-}};
+},
+methods: {
+    addbooking() {
+      booking.push({
+        date: this.date,
+        firstname: this.firstname,
+        lastname: this.lastname,
+        email: this.email,
+        tel: this.mobile,
+        golfers: this.golfer,
+        bookedby: this.admin
+      });
+    }
+}
+};
 </script>
 
 <style></style>
