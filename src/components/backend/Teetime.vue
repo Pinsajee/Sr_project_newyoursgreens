@@ -32,6 +32,7 @@
                     @input="menu2 = false"
                     :landscape="$vuetify.breakpoint.smAndUp"
                     class="mt-4"
+                   
                   ></v-date-picker>
                 </v-menu> </v-col
             ></v-card-title>
@@ -40,7 +41,7 @@
       </v-layout>
       <v-layout>
         <v-flex>
-          <v-col v-for="(item, i) in items" :key="i">
+          <v-col v-for="(item, i) in items" :key="i"  >
             <v-card>
               <v-card-actions>
                 <v-list-item class="grow">
@@ -49,97 +50,85 @@
                   </v-list-item-content>
                   <v-row align="center" justify="end">
                     <template>
-                      
-                        <v-dialog v-model="dialog" persistent max-width="600px">
-                          <template v-slot:activator="{ on, attrs }">
-                            <v-btn icon v-bind="attrs" v-on="on">
-                              <v-icon>mdi-heart</v-icon>
-                            </v-btn>
-                          </template>
-                          <v-card>
-                            <v-card-title>
-                              <span class="headline">Booking</span>
-                            </v-card-title>
-                            <v-card-text>
-                              <v-container>
-                                <v-row>
-                                  <v-col cols="12" sm="6" md="4">
-                                    <v-text-field
-                                      label="Legal first name*"
-                                      required
-                                    ></v-text-field>
-                                  </v-col>
-                                  <v-col cols="12" sm="6" md="4">
-                                    <v-text-field
-                                      label="Legal middle name"
-                                      hint="example of helper text only on focus"
-                                    ></v-text-field>
-                                  </v-col>
-                                  <v-col cols="12" sm="6" md="4">
-                                    <v-text-field
-                                      label="Legal last name*"
-                                      hint="example of persistent helper text"
-                                      persistent-hint
-                                      required
-                                    ></v-text-field>
-                                  </v-col>
-                                  <v-col cols="12">
-                                    <v-text-field
-                                      label="Email*"
-                                      required
-                                    ></v-text-field>
-                                  </v-col>
-                                  <v-col cols="12">
-                                    <v-text-field
-                                      label="Password*"
-                                      type="password"
-                                      required
-                                    ></v-text-field>
-                                  </v-col>
-                                  <v-col cols="12" sm="6">
-                                    <v-select
-                                      :items="['0-17', '18-29', '30-54', '54+']"
-                                      label="Age*"
-                                      required
-                                    ></v-select>
-                                  </v-col>
-                                  <v-col cols="12" sm="6">
-                                    <v-autocomplete
-                                      :items="[
-                                        '1',
-                                        '2',
-                                        '3',
-                                        '4',
-                                        '5',
-                                        '6',
-                                        
-                                      ]"
-                                      label="Golfer"
-                                      multiple
-                                    ></v-autocomplete>
-                                  </v-col>
-                                </v-row>
-                              </v-container>
-                              <small>*indicates required field</small>
-                            </v-card-text>
-                            <v-card-actions>
-                              <v-spacer></v-spacer>
-                              <v-btn
-                                color="blue darken-1"
-                                text
-                                @click="dialog = false"
-                                >Close</v-btn
-                              >
-                              <v-btn
-                                color="blue darken-1"
-                                text
-                                @click="dialog = false"
-                                >Save</v-btn
-                              >
-                            </v-card-actions>
-                          </v-card>
-                        </v-dialog>
-                      
+                      <v-dialog v-model="dialog" persistent max-width="600px">
+                        <template v-slot:activator="{ on, attrs }">
+                          <v-btn icon v-bind="attrs" v-on="on">
+                            <v-icon>mdi-heart</v-icon>
+                          </v-btn>
+                        </template>
+                        <v-card  v-model="Booking">
+                          <v-card-title>
+                            <span class="headline">Booking</span>
+                          </v-card-title>
+                          <v-card-text>
+                            <v-container >
+                              <v-row>
+                                 <v-col cols="12" >
+                                <h2>Date:  {{ date }}</h2>
+                                <h2 >time:  {{ item.selecttime }}</h2>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                  <v-text-field v-model="firstname"
+                                    label="Legal first name*"
+                                    required
+                                  ></v-text-field>
+                                </v-col>
+                                <v-col cols="12" sm="6" md="4">
+                                  <v-text-field v-model="lastname"
+                                    label="Legal last name*"
+                                    hint="example of persistent helper text"
+                                    persistent-hint
+                                    required
+                                  ></v-text-field>
+                                </v-col>
+                                <v-col cols="12">
+                                  <v-text-field
+                                    label="Email*" v-model="Email"
+                                    required
+                                  ></v-text-field>
+                                </v-col>
+                                <v-col cols="12">
+                                  <v-text-field v-model="mobile"
+                                    label="mobile*"
+                                    type="mobile"
+                                    required
+                                  ></v-text-field>
+                                </v-col>
+                                <v-col cols="12" sm="6">
+                                  <v-select v-model="golfer"
+                                    :items="['1', '2', '3', '4', '5', '6']"
+                                    label="Golfer"
+                                    required
+                                  ></v-select>
+                                </v-col>
+                                <v-col cols="12" sm="6" >
+                                  <v-text-field v-model="admin"
+                                    label="ชื่อพนักงานคนจอง"
+                                    required
+                                  ></v-text-field>
+                                </v-col>
+                              </v-row>
+                            </v-container>
+                            <small>*indicates required field</small>
+                          </v-card-text>
+                          <v-card-actions>
+                            <v-spacer></v-spacer>
+                            <v-btn
+                              color="blue darken-1"
+                              text
+                              @click="dialog = false"
+                              >Close</v-btn
+                            >
+                            <v-btn
+                              v-model="booking"
+                              color="blue darken-1"
+                              text
+                              @click="dialog = false"
+                              >Save</v-btn
+                            >
+                          </v-card-actions>
+                        </v-card>
+                      </v-dialog>
                     </template>
 
                     <v-btn icon>
@@ -168,37 +157,44 @@ export default {
   components: {
     Drawer,
   },
-  data: () => ({
+  data(){
+    return{
     date: new Date().toISOString().substr(0, 10),
-    menu: false,
-    modal: false,
     menu2: false,
     dialog: false,
     items: [
       {
         time: "08.10",
+        selecttime: "08.10"
       },
       {
         time: "08.17",
+        selecttime: "08.17"
       },
       {
-        time: "08.17",
+        time: "08.24",
+        selecttime: "08.24"
       },
       {
-        time: "08.17",
+        time: "08.24",
+        selecttime: "08.24"
       },
       {
-        time: "08.17",
+        time: "08.24",
+        selecttime: "08.24"
       },
       {
-        time: "08.17",
+        time: "08.24",
+        selecttime: "08.24"
       },
       {
-        time: "08.17",
+        time: "08.24",
+        selecttime: "08.24"
       },
-    ],
-  }),
-};
+     
+      ]
+  }
+}};
 </script>
 
 <style></style>
