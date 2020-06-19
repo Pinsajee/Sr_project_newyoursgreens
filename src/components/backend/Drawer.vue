@@ -7,7 +7,7 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <v-btn text color="black">
+      <v-btn text color="#ffffff">
         <span>Log Out</span>
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
@@ -23,8 +23,9 @@
               class=" darken-5"
             ></v-img>
             <br />
-            <h4>Green Valley Country Club</h4>
-            <br />
+            <div > <h4 >Green Valley </h4>
+            <br /></div>
+           
           </v-list-tile-avatar>
         </v-list-tile>
 
