@@ -75,7 +75,13 @@
                           </v-col>
                           <v-col cols="12" sm="6" md="6">
                             <v-text-field
-                              v-model="editedItem.fristname"
+                              v-model="editedItem.time"
+                              label="time"
+                            ></v-text-field>
+                          </v-col>
+                          <v-col cols="12" sm="6" md="6">
+                            <v-text-field
+                              v-model="editedItem.firstname"
                               label="fristname"
                             ></v-text-field>
                           </v-col>
@@ -87,8 +93,8 @@
                           </v-col>
                           <v-col cols="12" sm="6" md="12">
                             <v-text-field
-                              v-model="editedItem.Email"
-                              label="Email"
+                              v-model="editedItem.email"
+                              label="email"
                             ></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="12">
@@ -122,6 +128,7 @@
                         >Cancel</v-btn
                       >
                       <v-btn color="blue darken-1" text @click="save"
+                      v-on:click="addbooking"
                         >Save</v-btn
                       >
                     </v-card-actions>
@@ -146,6 +153,7 @@
 
 <script>
 import Drawer from "../../components/backend/Drawer";
+import { booking } from "../../database/databaseconfig";
 export default {
   components: {
     Drawer,
@@ -170,12 +178,14 @@ date: new Date().toISOString().substr(0, 10),
     editedIndex: -1,
     editedItem: {
       time: "",
-      fristname: "",
+      date: "",
+      firstname: "",
       lastname: "",
       Email: "",
       mobile: "",
       golfer: "",
       admin: "",
+      bookingArrays: []
     },
     defaultItem: {
       time: "",
@@ -198,9 +208,27 @@ date: new Date().toISOString().substr(0, 10),
 
   created() {
     this.initialize();
+     booking.on("child_added", snapshot => {
+      this.bookingArrays.push({ ...snapshot.val(), id: snapshot.key });
+      console.log(snapshot.key);
+    });
   },
 
   methods: {
+    addbooking() {
+      {
+      booking.push({
+        date: this.date,
+        time: this.editedItem.time,
+        firstname: this.editedItem.firstname,
+        lastname: this.editedItem.lastname,
+        email: this.editedItem.email,
+        tel: this.editedItem.mobile,
+        golfers: this.editedItem.golfer,
+        bookedby: this.editedItem.admin
+      });
+    }
+    },
     initialize() {
       this.teetime = [
         {
@@ -437,11 +465,11 @@ date: new Date().toISOString().substr(0, 10),
       this.dialog = true;
     },
 
-    deleteItem(item) {
-      const index = this.teetime.indexOf(item);
-      confirm("Are you sure you want to delete this item?") &&
-        this.teetime.splice(index, 1);
-    },
+    // deleteItem(item) {
+    //   const index = this.teetime.indexOf(item);
+    //   confirm("Are you sure you want to delete this item?") &&
+    //     this.teetime.splice(index, 1);
+    // },
 
     close() {
       this.dialog = false;
