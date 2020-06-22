@@ -81,7 +81,7 @@
 
 <script>
 import { caddy, caddyinfo } from "../../database/databaseconfig";
-import Drawer from '../backend/Drawer';
+import Drawer from '../../components/backend/Drawer';
 export default {
      components: {
     Drawer,

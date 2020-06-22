@@ -3,11 +3,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import frominput from  '../views/fromcaddy.vue'
-import caddyinfo from '../views/frominput.vue'
+import caddyinfo from '../views/backend/Caddyinfo.vue'
 import testloop from '../views/testloop.vue'
 import formedit from '../views/formedit.vue'
 import login from '../views/login.vue'
-import bookingback from '../views/backend/bookingback.vue'
 import memberinfo from '../views/backend/MemberInfo.vue'
 import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
@@ -56,10 +55,6 @@ Vue.use(VueRouter)
     path: '/login',
     name: 'Login',
     component: login
-  }, {
-    path: '/booking',
-    name: 'bookingback',
-    component: bookingback
   }, {
     path: '/memberinfo',
     name: 'memberinfo',

@@ -12,7 +12,7 @@
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-navigation-drawer v-model="drawer" app>
+    <v-navigation-drawer v-model="drawer" app >
       <v-list dense>
         <v-list-tile avatar>
           <v-list-tile-avatar color="white">

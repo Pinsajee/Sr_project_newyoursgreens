@@ -1,21 +1,29 @@
 <template>
-  <div class="home">
-    <Homeback/>
+<v-app>
+  <Drawer/>
+   <div>
+ <v-img
+              :src="require('../../assets/golflogo.jpg')"
+              height="70"
+              contain
+              class=" darken-5"
+            ></v-img>
   </div>
- 
+
+  
+
+</v-app>
 </template>
 
 <script>
-// @ is an alias to /src
-import Homeback from '@/components/backend/Home.vue'
-
-
+import Drawer from '../../components/backend/Drawer';
 export default {
-  name: 'Home',
-  components: {
-    Homeback,
-   
-   
-  }
+ components: {
+    Drawer,
+  },
 }
 </script>
+
+<style>
+
+</style>
