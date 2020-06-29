@@ -198,6 +198,7 @@ export default {
   data() {
     return {
       name: "timeloop",
+      dialog:false,
 
       show: false,
 

@@ -62,7 +62,7 @@ export default {
       items: [
         { title: "Home", icon: "home", route: "/Home" },
         { title: "Teetime", icon: "dashboard", route: "/Teetime" },
-        { title: "Caddy", icon: "account_box", route: "/Caddyinfo" },
+        { title: "Caddy", icon: "account_box", route: "/Caddy" },
         { title: "Member", icon: "account_box", route: "/memberinfo" },
       ],
     };

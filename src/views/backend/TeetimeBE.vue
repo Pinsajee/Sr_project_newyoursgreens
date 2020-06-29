@@ -1,9 +1,9 @@
 <template>
   <div class="teetime">
     <Drawer />
-
+ 
     <v-container class="my-5">
-      <h1>Teetime</h1>
+     <h1>Teetime</h1>
       <v-layout row wrap>
         <v-flex>
           <v-card>
@@ -70,15 +70,11 @@
                           <v-col cols="12" sm="6" md="12">
                             <div class="text--primary">
                               Date: {{ date }}<br />
-                              Time: {{ editedItem.time }}
+                              <v-textarea  v-model="editedItem.time"
+                              >Time: {{editedItem.time}}</v-textarea>
                             </div>
                           </v-col>
-                          <v-col cols="12" sm="6" md="6">
-                            <v-text-field
-                              v-model="editedItem.time"
-                              label="time"
-                            ></v-text-field>
-                          </v-col>
+                         
                           <v-col cols="12" sm="6" md="6">
                             <v-text-field
                               v-model="editedItem.firstname"
@@ -170,7 +166,7 @@ date: new Date().toISOString().substr(0, 10),
         sortable: false,
         value: "time",
       },
-      { text: "reservation info", value: "fristname" },
+      { text: "reservation info", value: "firstname" },
       { text: "golfer", value: "golfer" },
       { text: "Actions", value: "actions", sortable: false },
     ],
