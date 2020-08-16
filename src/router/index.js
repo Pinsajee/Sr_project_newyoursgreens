@@ -12,6 +12,7 @@ import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
 import Teetime from '../views/backend/TeetimeBE.vue'
 import caddylist from '../views/backend/CaddyList.vue'
+import courseinfo from '../views/courseInfo.vue'
 
 
 
@@ -22,6 +23,11 @@ Vue.use(VueRouter)
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/overview',
+    name: 'courseinfo',
+    component: courseinfo
   },
 
   {
