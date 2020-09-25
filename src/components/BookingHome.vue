@@ -15,7 +15,7 @@
             <v-card-text>
               <v-row align="center">
                 <v-col class="display-3" cols="5" xs12>
-                  <v-img src="../assets/golflogo.jpg" height="180px" contain></v-img>
+                  <v-img src="../assets/logocourse.png" height="180px" contain></v-img>
                 </v-col>
                 <v-col class="display-3" cols="7" xs12>
                   <v-card-title>Green Valley Country Club Bangkok</v-card-title>
@@ -152,9 +152,9 @@
               </div>
 
               <v-row justify="center">
-                <v-dialog v-model="dialog" persistent width="400">
+                <v-dialog v-model="dialog" persistent width="400" >
                   <template v-slot:activator="{ on, attrs }">
-                    <v-btn rounded block color="#05BC01" dark v-bind="attrs" v-on="on">next</v-btn>
+                    <v-btn rounded block color="#05BC01" dark v-bind="attrs" v-on="on" >next</v-btn>
                   </template>
 
                   <div class="text-center">
@@ -254,6 +254,7 @@ export default {
         golfers: this.golfers
       });
     },
+    
     created() {
       booking.on("child_added", snapshot => {
         this.bookingArray.push({ ...snapshot.val(), id: snapshot.key });

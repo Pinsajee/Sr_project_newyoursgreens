@@ -17,14 +17,13 @@
         <v-list-tile avatar>
           <v-list-tile-avatar color="white">
             <v-img
-              :src="require('../../assets/golflogo.jpg')"
+              :src="require('../../assets/logocourse.png')"
               height="70"
               contain
               class=" darken-5"
             ></v-img>
-            <br />
-            <div > <h4 >Green Valley </h4>
-            <br /></div>
+            <br>
+            </div>
            
           </v-list-tile-avatar>
         </v-list-tile>
@@ -48,7 +47,8 @@
     </v-navigation-drawer>
 
     <v-footer color="#0F7D63" app>
-      <span class="white--text">&copy; 2020</span>
+      <span class="white--text">Green Valley Country Club <br> &copy; 2020 </span>
+      
     </v-footer>
   </nav>
 </template>

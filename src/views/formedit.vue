@@ -9,21 +9,53 @@
         <v-col>
           <!--form caddy -->
 
-          <v-form ref="form" lazy-validation @submit.prevent="submit" onsubmit="return false;">
-            <v-text-field v-model="form.code" :counter="3" label="Code" required></v-text-field>
+          <v-form
+            ref="form"
+            lazy-validation
+            @submit.prevent="submit"
+            onsubmit="return false;"
+          >
+            <v-text-field
+              v-model="form.code"
+              :counter="3"
+              label="Code"
+              required
+            ></v-text-field>
 
-            <v-text-field v-model.trim="form.firstname" name="Firstname" label="Firstname" required></v-text-field>
+            <v-text-field
+              v-model.trim="form.firstname"
+              name="Firstname"
+              label="Firstname"
+              required
+            ></v-text-field>
 
-            <v-text-field v-model.trim="form.lastname" label="Lastname" required></v-text-field>
+            <v-text-field
+              v-model.trim="form.lastname"
+              label="Lastname"
+              required
+            ></v-text-field>
 
-            <v-text-field v-model="form.nickname" label="Nickname" required></v-text-field>
+            <v-text-field
+              v-model="form.nickname"
+              label="Nickname"
+              required
+            ></v-text-field>
 
-            <v-text-field v-model="form.tel" :counter="10" label="Telephone" required></v-text-field>
+            <v-text-field
+              v-model="form.tel"
+              :counter="10"
+              label="Telephone"
+              required
+            ></v-text-field>
 
             <div class="my-2">
-              <v-btn rounded block color="#4F9EFF" dark v-on:click="onUpdate">Save</v-btn>
-              <br>
-              <v-btn rounded block color="#FFBD17" dark v-on:click="onCancel">Cancel</v-btn>
+              <v-btn rounded block color="#4F9EFF" dark v-on:click="onUpdate"
+                >Save</v-btn
+              >
+              <br />
+              <v-btn rounded block color="#FFBD17" dark v-on:click="onCancel"
+                >Cancel</v-btn
+              >
 
               <v-icon dark>refresh</v-icon>
             </div>
@@ -44,8 +76,8 @@ export default {
         firstname: "",
         lastname: "",
         nickname: "",
-        tel: ""
-      }
+        tel: "",
+      },
     };
   },
   mounted() {
@@ -55,7 +87,6 @@ export default {
     initialUpdateItem() {
       const data = this.$route.params;
       this.form = data;
- 
     },
     onUpdate() {
       console.log(this.form);
@@ -66,17 +97,18 @@ export default {
           firstname: this.form.firstname,
           lastname: this.form.lastname,
           nickname: this.form.nickname,
-          tel: this.form.tel
+          tel: this.form.tel,
         })
-        .then(res => {
+        .then((res) => {
           this.$router.push({ name: "caddyinfo" });
         })
-        .catch(err => {
+        .catch((err) => {
           console(err);
         });
-    },onCancel(){
+    },
+    onCancel() {
       this.$router.push({ name: "caddyinfo" });
-    }
-  }
+    },
+  },
 };
 </script>

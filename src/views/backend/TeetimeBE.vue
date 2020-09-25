@@ -70,8 +70,8 @@
                           <v-col cols="12" sm="6" md="12">
                             <div class="text--primary">
                               Date: {{ date }}<br />
-                              <v-textarea  v-model="editedItem.time"
-                              >Time: {{editedItem.time}}</v-textarea>
+                              <v-text  v-model="editedItem.time"
+                              >Time: {{editedItem.time}}</v-text>
                             </div>
                           </v-col>
                          

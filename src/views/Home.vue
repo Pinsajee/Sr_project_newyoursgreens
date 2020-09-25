@@ -2,6 +2,7 @@
  <div class="home">
    <navigation/>
     <bookingPage/>
+    <footer/>
  
   </div>
 </template>
@@ -10,6 +11,7 @@
 // @ is an alias to /src
 import bookingPage from '@/components/BookingHome.vue'
 import navigation from '@/components/navigation.vue'
+import footer from '@/components/footer.vue'
 
 
 export default {
@@ -17,6 +19,7 @@ export default {
   components: {
     bookingPage,
     navigation,
+    footer,
    
   }
 }

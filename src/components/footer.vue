@@ -2,6 +2,8 @@
   <v-footer
     dark
     padless
+    app
+    color="#0F7D63" 
   >
     <v-card
       flat
@@ -26,7 +28,7 @@
       <v-divider></v-divider>
 
       <v-card-text class="white--text">
-        {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
+        &copy; {{ new Date().getFullYear() }} 
       </v-card-text>
     </v-card>
   </v-footer>
@@ -34,6 +36,8 @@
 
 <script>
   export default {
+     name: "footer",
+
     data: () => ({
       icons: [
         'mdi-facebook',
