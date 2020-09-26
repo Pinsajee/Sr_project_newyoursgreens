@@ -11,7 +11,7 @@ import memberinfo from '../views/backend/MemberInfo.vue'
 import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
 import Teetime from '../views/backend/TeetimeBE.vue'
-import caddylist from '../views/backend/CaddyList.vue'
+
 import courseinfo from '../views/courseInfo.vue'
 
 

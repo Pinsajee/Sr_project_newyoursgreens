@@ -152,9 +152,9 @@
               </div>
 
               <v-row justify="center">
-                <v-dialog v-model="dialog" persistent width="400" >
+                <v-dialog v-model="dialog" persistent width="400">
                   <template v-slot:activator="{ on, attrs }">
-                    <v-btn rounded block color="#05BC01" dark v-bind="attrs" v-on="on" >next</v-btn>
+                    <v-btn rounded block color="#05BC01" dark v-bind="attrs" v-on="on">next</v-btn>
                   </template>
 
                   <div class="text-center">
@@ -254,7 +254,6 @@ export default {
         golfers: this.golfers
       });
     },
-    
     created() {
       booking.on("child_added", snapshot => {
         this.bookingArray.push({ ...snapshot.val(), id: snapshot.key });
@@ -275,13 +274,6 @@ export default {
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
     }
   },
-
-  // -----------------------------------
-  // data: vm => ({
-  //   date: new Date().toISOString().substr(0, 10),
-  //   dateFormatted: vm.formatDate(new Date().toISOString().substr(0, 10)),
-  //   menu1: false
-  // }),
   computed: {
     computedDateFormatted() {
       return this.formatDate(this.date);
