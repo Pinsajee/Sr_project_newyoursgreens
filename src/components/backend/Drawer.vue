@@ -23,7 +23,7 @@
               class=" darken-5"
             ></v-img>
             <br>
-            </div>
+           
            
           </v-list-tile-avatar>
         </v-list-tile>
