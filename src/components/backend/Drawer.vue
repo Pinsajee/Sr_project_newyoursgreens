@@ -1,7 +1,6 @@
 <template>
   <nav>
     <v-toolbar app color="#0F7D63" dark>
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
       <v-toolbar-title class="text-uppercase gray--text">
         <span class="font-weight-light">YourGreen</span>
       </v-toolbar-title>

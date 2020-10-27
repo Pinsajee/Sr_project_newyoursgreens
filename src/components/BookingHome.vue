@@ -149,6 +149,7 @@
                 Phone: {{phone}}
                 <br />
                 <br />
+                
               </div>
 
               <v-row justify="center">
