@@ -254,11 +254,13 @@ export default {
         golfers: this.golfers
       });
     },
-    usersRef.once('value', function(snapshot) {
-    if (snapshot.hasChild(theDataToAdd)) {
-    alert('exists');
+    checkdata() {
+         usersRef.once('value', function(snapshot) {
+          if (snapshot.hasChild(theDataToAdd)) {
+          alert('exists');
   }
 });
+    },
     created() {
       booking.on("child_added", snapshot => {
         this.bookingArray.push({ ...snapshot.val(), id: snapshot.key });
