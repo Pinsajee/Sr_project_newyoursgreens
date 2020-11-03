@@ -179,7 +179,7 @@ export default {
         },
         { text: "reservation info", value: "firstname" },
         { text: "golfer", value: "golfer" },
-        { text: "Actions", value: "actions", sortable: false },
+        { text: "Save/Edit Booking", value: "actions", sortable: false },
       ],
       teetime: [],
       editedIndex: -1,
