@@ -144,7 +144,7 @@
                 single-line
                 required
                 :rules="nameRules"
-                :counter="10"
+              
               ></v-text-field>
               <v-text-field
                 v-model="email"
@@ -154,12 +154,13 @@
                 required
               ></v-text-field>
               <v-text-field
-                v-model="phone"
+                v-model.number="phone"
                  :rules="phoneRules"
                 label="Phone"
                 single-line
                 required
-              
+               :counter="10"
+                 maxlength="10"
               ></v-text-field>
             </v-col>
           </v-card>
@@ -291,14 +292,16 @@ export default {
       bookingArray: [],
       nameRules: [
         v => !!v || 'Name is required',
-     
+       
       ],
       emailRules: [
         v => !!v || 'E-mail is required',
         v => /.+@.+/.test(v) || 'E-mail must be valid',
       ],
       phoneRules:[
-        v => !!v || 'phone is required'
+        v => !!v || 'phone is required',
+        v => v.length <= 10 || 'phone must be less than 10 number',
+        v => /^\d+$/.test(v)||'This field only accept numbers'
       ]
     };
   },
