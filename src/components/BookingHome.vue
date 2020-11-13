@@ -154,7 +154,7 @@
                 required
               ></v-text-field>
               <v-text-field
-                v-model.number="phone"
+                v-model="phone"
                  :rules="phoneRules"
                 label="Phone"
                 single-line

@@ -55,7 +55,7 @@ export default {
             .signInWithEmailAndPassword(this.email, this.password)
             .then(
                  user => {
-                    this.$router.replace('Homebn');
+                    this.$router.replace('Drawer');
                  },
                  err => {
                     alert(err.message)

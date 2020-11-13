@@ -50,6 +50,7 @@
                       >
                         <v-text-field
                           v-model="code"
+                          :rules="codeRules"
                           :counter="3"
                           label="Code"
                           required
@@ -57,25 +58,30 @@
 
                         <v-text-field
                           v-model="firstname"
+                           :rules="firstnameRules"
                           label="Firstname"
                           required
                         ></v-text-field>
 
                         <v-text-field
                           v-model="lastname"
+                          :rules="lastnameRules"
                           label="Lastname"
                           required
                         ></v-text-field>
 
                         <v-text-field
                           v-model="nickname"
+                           :rules="nicknameRules"
                           label="Nickname"
                           required
                         ></v-text-field>
 
                         <v-text-field
                           v-model="tel"
+                          :rules="phoneRules"
                           :counter="10"
+                 maxlength="10"
                           label="Telephone"
                           required
                         ></v-text-field>
@@ -194,6 +200,14 @@ export default {
       nickname: "",
       tel: "",
       caddyArrays: [],
+       phoneRules:[
+        v => !!v || 'phone is required',
+        v => v.length <= 10 || 'phone must be less than 10 number',
+        v => /^\d+$/.test(v)||'This field only accept numbers'
+      ],
+      codeRules:[  v => !!v || 'code is required',,v => /^\d+$/.test(v)||'This field only accept numbers']
+,    nicknameRules:[v => !!v || 'nickname is required'], firstnameRules:[v => !!v || 'firstname is required'],
+lastnameRules:[v => !!v || 'lastname is required'],
       // editedCode: null,
       // editedFirstname: null,
       // editedLastname: null,
