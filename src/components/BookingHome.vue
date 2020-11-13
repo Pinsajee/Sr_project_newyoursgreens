@@ -15,12 +15,18 @@
             <v-card-text>
               <v-row align="center">
                 <v-col class="display-3" cols="5" xs12>
-                  <v-img src="../assets/logocourse.png" height="180px" contain></v-img>
+                  <v-img
+                    src="../assets/logocourse.png"
+                    height="180px"
+                    contain
+                  ></v-img>
                 </v-col>
                 <v-col class="display-3" cols="7" xs12>
                   <v-card-title>Green Valley Country Club Bangkok</v-card-title>
 
-                  <v-card-subtitle>สนามกอล์ฟกรีนวัลเล่ คันทรีคลับ บางนา</v-card-subtitle>
+                  <v-card-subtitle
+                    >สนามกอล์ฟกรีนวัลเล่ คันทรีคลับ บางนา</v-card-subtitle
+                  >
                 </v-col>
               </v-row>
             </v-card-text>
@@ -58,7 +64,11 @@
                     ></v-text-field>
                   </template>
 
-                  <v-date-picker v-model="date" no-title @input="menu1 = false"></v-date-picker>
+                  <v-date-picker
+                    v-model="date"
+                    no-title
+                    @input="menu1 = false"
+                  ></v-date-picker>
                   <v-spacer></v-spacer>
                 </v-dialog>
               </v-col>
@@ -80,7 +90,13 @@
                   <v-subheader>Teetime</v-subheader>
                 </v-col>
                 <v-col class="d-flex" cols="6" sm="6">
-                  <v-select v-model="time" :items="times" label="teetime" dense solo></v-select>
+                  <v-select
+                    v-model="time"
+                    :items="times"
+                    label="teetime"
+                    dense
+                    solo
+                  ></v-select>
                 </v-col>
               </v-row>
             </v-col>
@@ -101,7 +117,13 @@
                     <h4>Golfer</h4>
                   </v-col>
                   <v-col cols="6">
-                    <v-select v-model="golfers" :items="golfer" label="0 golfer" dense solo></v-select>
+                    <v-select
+                      v-model="golfers"
+                      :items="golfer"
+                      label="0 golfer"
+                      dense
+                      solo
+                    ></v-select>
                   </v-col>
                 </v-row>
               </div>
@@ -116,9 +138,29 @@
             <v-card-title>Reservation Information</v-card-title>
             <v-divider></v-divider>
             <v-col cols="12" sm="12">
-              <v-text-field v-model="name" label="Name" single-line></v-text-field>
-              <v-text-field v-model="email" label="E-mail" single-line></v-text-field>
-              <v-text-field v-model="phone" label="Phone" single-line></v-text-field>
+              <v-text-field
+                v-model="name"
+                label="Name"
+                single-line
+                required
+                :rules="nameRules"
+                :counter="10"
+              ></v-text-field>
+              <v-text-field
+                v-model="email"
+                :rules="emailRules"
+                label="E-mail"
+                single-line
+                required
+              ></v-text-field>
+              <v-text-field
+                v-model="phone"
+                 :rules="phoneRules"
+                label="Phone"
+                single-line
+                required
+              
+              ></v-text-field>
             </v-col>
           </v-card>
         </v-col>
@@ -134,34 +176,45 @@
                 Date: {{ date }}
                 <br />
                 <br />
-                Time: {{time}}
+                Time: {{ time }}
                 <br />
                 <br />
-                Name: {{name}}
+                Name: {{ name }}
                 <br />
                 <br />
-                Golfers: {{golfers}}
+                Golfers: {{ golfers }}
                 <br />
                 <br />
-                E-mail: {{email}}
+                E-mail: {{ email }}
                 <br />
                 <br />
-                Phone: {{phone}}
+                Phone: {{ phone }}
                 <br />
                 <br />
-                
               </div>
 
               <v-row justify="center">
                 <v-dialog v-model="dialog" persistent width="400">
                   <template v-slot:activator="{ on, attrs }">
-                    <v-btn rounded block color="#05BC01" dark v-bind="attrs" v-on="on">next</v-btn>
+                    <v-btn
+                      rounded
+                      block
+                      color="#05BC01"
+                      dark
+                      v-bind="attrs"
+                      v-on="on"
+                      >next</v-btn
+                    >
                   </template>
 
                   <div class="text-center">
                     <v-card class="mx-auto" max-width="400">
                       <v-avatar size="125" tile>
-                        <v-img src="../assets/icon/confirm.png" height="100px" contain />
+                        <v-img
+                          src="../assets/icon/confirm.png"
+                          height="100px"
+                          contain
+                        />
                       </v-avatar>
                       <v-card-text class="text--primary">
                         <div>
@@ -176,7 +229,8 @@
                           text
                           color="primary"
                           @click="dialog = false"
-                        >Submit</v-btn>
+                          >Submit</v-btn
+                        >
                       </v-card-action>
                     </v-card>
                   </div>
@@ -199,7 +253,7 @@ export default {
   data() {
     return {
       name: "timeloop",
-      dialog:false,
+      dialog: false,
 
       show: false,
 
@@ -217,7 +271,7 @@ export default {
         "10:30",
         "10:44",
         "10:58",
-        "11:12"
+        "11:12",
       ],
 
       golfer: [
@@ -226,7 +280,7 @@ export default {
         "3 golfer",
         "4 golfer",
         "5 golfer",
-        "6 golfer"
+        "6 golfer",
       ],
       date: null,
       time: "",
@@ -234,12 +288,23 @@ export default {
       email: "",
       phone: "",
       golfers: null,
-      bookingArray: []
+      bookingArray: [],
+      nameRules: [
+        v => !!v || 'Name is required',
+     
+      ],
+      emailRules: [
+        v => !!v || 'E-mail is required',
+        v => /.+@.+/.test(v) || 'E-mail must be valid',
+      ],
+      phoneRules:[
+        v => !!v || 'phone is required'
+      ]
     };
   },
   components: {
     // selectTime,
-    datePicker
+    datePicker,
   },
 
   methods: {
@@ -252,11 +317,11 @@ export default {
         name: this.name,
         email: this.email,
         phone: this.phone,
-        golfers: this.golfers
+        golfers: this.golfers,
       });
     },
     created() {
-      booking.on("child_added", snapshot => {
+      booking.on("child_added", (snapshot) => {
         this.bookingArray.push({ ...snapshot.val(), id: snapshot.key });
         console.log(snapshot.key);
       });
@@ -273,18 +338,18 @@ export default {
 
       const [month, day, year] = date.split("/");
       return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
-    }
+    },
   },
   computed: {
     computedDateFormatted() {
       return this.formatDate(this.date);
-    }
+    },
   },
 
   watch: {
     date(val) {
       this.dateFormatted = this.formatDate(this.date);
-    }
-  }
+    },
+  },
 };
 </script>

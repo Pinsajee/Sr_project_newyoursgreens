@@ -1,14 +1,14 @@
 <template>
-
+<div id="app">
   <v-app>
    
 <v-content clss="mx-4 md4">
-      <router-view></router-view>
+      <router-view/>
     </v-content>
     
   </v-app>
   
-
+</div>
  
 </template>
 

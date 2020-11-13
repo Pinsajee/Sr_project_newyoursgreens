@@ -12,7 +12,7 @@ import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
 import Teetime from '../views/backend/TeetimeBE.vue'
 
-import courseinfo from '../views/courseInfo.vue'
+
 
 
 
@@ -25,19 +25,13 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path: '/overview',
-    name: 'courseinfo',
-    component: courseinfo
-  },
-
-  {
     path: '/Teetime',
     name: 'Teetime',
     component: Teetime
   },
   {
     path: '/Home',
-    name: 'Home',
+    name: 'Homebn',
     component: HomeBE
   },
   {
@@ -72,10 +66,7 @@ Vue.use(VueRouter)
     name: 'memberedit',
     component: memberedit
   },
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-  
+    
 ]
 
 const router = new VueRouter({
