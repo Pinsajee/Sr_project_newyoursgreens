@@ -59,10 +59,10 @@ export default {
   data() {
     return {
       items: [
-        { title: "Home", icon: "home", route: "/Home" },
+        { title: "Home", icon: "home", route: "/admin" },
         { title: "Teetime", icon: "dashboard", route: "/Teetime" },
-        { title: "Caddy", icon: "account_box", route: "/Caddy" },
-        { title: "Member", icon: "account_box", route: "/memberinfo" },
+        { title: "Caddy", icon: "account_box", route: "/adminCaddy" },
+        { title: "Member", icon: "account_box", route: "/adminmemberinfo" },
       ],
     };
   },

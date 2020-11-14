@@ -2,10 +2,10 @@
   <v-app>
     <Drawer />
     <div>
-       <v-btn text color="#ffffff" @click="logout" type="submit" class="btn">
+       <!-- <v-btn text color="black" @click="logout" type="submit" class="btn">
         <span>Log Out</span>
         <v-icon right>exit_to_app</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-img
         :src="require('../../assets/AfirstPage_01.png')"
         height=""
@@ -27,7 +27,7 @@ export default {
   beforeCreate() {
     firebase.auth().onAuthStateChanged((user) => {
         if (!user) {
-          this.$router.replace("/")
+          this.$router.replace("/login")
           alert("You don't have a permission")
         }
     });
@@ -38,7 +38,7 @@ export default {
        .auth()
        .signOut()
        .then(() => {
-         this.$router.replace("/");
+         this.$router.replace("/login");
        });
     },
   }}

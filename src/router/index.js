@@ -30,7 +30,7 @@ Vue.use(VueRouter)
     component: Teetime
   },
   {
-    path: '/Home',
+    path: '/admin',
     name: 'Homebn',
     component: HomeBE
   },
@@ -40,7 +40,7 @@ Vue.use(VueRouter)
     component: frominput
   },
   {
-    path: '/caddy',
+    path: '/admincaddy',
     name: 'caddyinfo',
     component: caddyinfo
   },
@@ -54,11 +54,11 @@ Vue.use(VueRouter)
     name: 'formedit',
     component: formedit
   }, {
-    path: '/login',
+    path: '/adminlogin',
     name: 'Login',
     component: login
   }, {
-    path: '/memberinfo',
+    path: '/adminmemberinfo',
     name: 'memberinfo',
     component: memberinfo
   },{
