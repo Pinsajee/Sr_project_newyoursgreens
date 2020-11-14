@@ -141,14 +141,30 @@
                 </v-dialog>
               </v-toolbar>
             </template>
-            <template v-slot item.actions="{ item }">
-              <v-icon small class="mr-2" @click="editItem(item)">
-                mdi-pencil
-              </v-icon>
-            </template>
-            <template v-slot:no-data>
-              <v-btn color="primary" @click="initialize">Reset</v-btn>
-            </template>
+            <template v-slot:item.actions="{ item }">
+            <v-icon
+              v-on:click="addbooking"
+              small
+              class="mr-2"
+              @click="editItem(item)"
+            >
+              mdi-pencil
+            </v-icon>
+            <v-icon
+              small
+              @click="deleteItem(item)"
+            >
+              mdi-delete
+            </v-icon>
+          </template>
+          <template v-slot:no-data>
+            <v-btn
+              color="primary"
+              @click="initialize"
+            >
+              Reset
+            </v-btn>
+    </template>
           </v-data-table>
         </v-flex>
       </v-layout>
@@ -178,7 +194,7 @@ export default {
           value: "time",
         },
         { text: "reservation info", value: "firstname" },
-        { text: "golfer", value: "golfer" },
+        { text: "golfer", value: "golfers" },
         { text: "Save/Edit Booking", value: "actions", sortable: false },
       ],
       teetime: [],
@@ -192,7 +208,7 @@ export default {
         mobile: "",
         golfer: "",
         admin: "",
-        bookingArrays: [],
+        // bookingArrays: [],
       },
       defaultItem: {
         time: "",
@@ -227,6 +243,9 @@ export default {
 
   methods: {
     async querydata(date) {
+      console.log("=====  วันที่ " + date)
+      this.bookingperday = []
+      console.log("check null value" + this.bookingperday.length)
       await booking
         .orderByChild("date")
         .equalTo(date)
@@ -238,7 +257,7 @@ export default {
             // console.log(data[key])
             this.bookingperday.push(data[key] );
           }
-          console.log(this.bookingperday);
+          console.log(this.bookingperday + " after");
         });
     },
     addbooking() {
@@ -258,22 +277,22 @@ export default {
     initialize() {
       this.teetime = [
         {
-          time: this.editedItem.time,
-          firstname: this.editedItem.firstname,
-          lastname: this.editedItem.lastnam,
-          Email: this.editedItem.email,
-          mobile: this.editedItem.mobile,
-          golfer: this.editedItem.golfer,
-          admin: this.editedItem.admin,
+          time: "08.10",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
         },
         {
           time: "08.17",
-          firstname: this.editedItem.firstname,
-          lastname: this.editedItem.lastnam,
-          Email: this.editedItem.email,
-          mobile: this.editedItem.mobile,
-          golfer: 9,
-          admin: this.editedItem.admin,
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
         },
         {
           time: "08.24",
