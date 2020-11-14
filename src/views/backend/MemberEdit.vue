@@ -37,6 +37,7 @@
 <script>
 import { members } from "../../database/databaseconfig";
 export default {
+  
   data() {
     return {
       form: {

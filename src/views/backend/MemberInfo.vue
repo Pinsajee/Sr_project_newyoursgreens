@@ -81,6 +81,7 @@ export default {
   components: {
     Drawer,
   },
+  
   data() {
     return {
       editedMemberinfo : false,

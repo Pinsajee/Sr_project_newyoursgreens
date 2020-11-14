@@ -14,13 +14,11 @@ import Teetime from '../views/backend/TeetimeBE.vue'
 
 
 
-
-
 Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/',
+    path: '/booking',
     name: 'Home',
     component: Home
   },
