@@ -253,6 +253,7 @@ import { booking } from "../database/databaseconfig";
 export default {
   data() {
     return {
+      name:"userhome",
       name: "timeloop",
       dialog: false,
 

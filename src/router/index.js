@@ -11,6 +11,7 @@ import memberinfo from '../views/backend/MemberInfo.vue'
 import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
 import Teetime from '../views/backend/TeetimeBE.vue'
+import loginforuser from '../views/Loginforuser.vue'
 
 
 
@@ -19,8 +20,13 @@ Vue.use(VueRouter)
   const routes = [
   {
     path: '/booking',
-    name: 'Home',
+    name: 'bookinguser',
     component: Home
+  },
+  {
+    path:'/loginforuser',
+    name: 'loginforuser',
+    component: loginforuser
   },
   {
     path: '/Teetime',
