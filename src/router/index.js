@@ -15,6 +15,7 @@ import loginforuser from '../views/Loginforuser.vue'
 
 
 
+
 Vue.use(VueRouter)
 
   const routes = [
@@ -28,6 +29,7 @@ Vue.use(VueRouter)
     name: 'loginforuser',
     component: loginforuser
   },
+ 
   {
     path: '/Teetime',
     name: 'Teetime',

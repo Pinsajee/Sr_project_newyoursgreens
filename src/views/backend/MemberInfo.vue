@@ -2,6 +2,93 @@
 <v-app>
 <Drawer/>
   <v-container>
+   <h1>MEMBER LIST</h1>
+
+ <div>
+        <v-dialog v-model="dialog" max-width="500px">
+          <template v-slot:activator="{ on, attrs }">
+            <v-btn color="primary" dark class="mb-2" v-bind="attrs" v-on="on"
+              >New member</v-btn
+            >
+          </template>
+          <v-card class="mx-auto" max-width="500" outlined col-md-6 offset-md-3>
+            <v-card-text>
+              <p class="display-1 text--primary">caddy information</p>
+            </v-card-text>
+
+            <v-col>
+              <!--form caddy -->
+              <v-form
+                ref="form"
+                lazy-validation
+                @submit.prevent="submit"
+                onsubmit="return false;"
+              >
+                <v-text-field
+                  v-model="number"
+                  :rules="codeRules"
+                  :counter="3"
+                  label="number"
+                  required
+                ></v-text-field>
+
+                <v-text-field
+                  v-model="firstname"
+                  :rules="firstnameRules"
+                  label="Firstname"
+                  required
+                ></v-text-field>
+
+                <v-text-field
+                  v-model="lastname"
+                  :rules="lastnameRules"
+                  label="Lastname"
+                  required
+                ></v-text-field>
+
+                
+
+                <v-text-field
+                  v-model="address"
+                  :rules="nicknameRules"
+                  label="Address"
+                  required
+                ></v-text-field>
+
+                <v-text-field
+                  v-model="tel"
+                  :rules="phoneRules"
+                  :counter="10"
+                  maxlength="10"
+                  label="Telephone"
+                  required
+                ></v-text-field>
+                <!-- <v-file-input
+    label="File input"
+    filled
+    prepend-icon="mdi-camera"
+          ></v-file-input>-->
+                <v-card-actions>
+                  <v-spacer></v-spacer>
+                  <v-btn
+                    rounded
+                    block
+                    color="#05BC01"
+                    @click="dialog = false"
+                    dark
+                    v-on:click="addinfo"
+                    >Confirm</v-btn
+                  >
+                  <br />
+                </v-card-actions>
+              </v-form>
+            </v-col>
+          </v-card>
+        </v-dialog>
+      </div>
+
+
+
     <div slot="buttons">
     </div>
 
@@ -11,13 +98,10 @@
         <v-card max-width="460">
           <v-list-item three-line>
             <v-list-item-content>
-              <v-list-item-title class="headline mb-1">
-                {{
-                infoMember.number
-                }}
-              </v-list-item-title>
+              
+          
               <!-- <v-text-field v-model="code" :counter="3" label="Code" required></v-text-field> -->
-              <v-list-item-subtitle>{{ infoMember.number }}</v-list-item-subtitle>
+              <v-list-item-title>{{ infoMember.number }}</v-list-item-title>
               <v-list-item-subtitle>{{ infoMember.firstname }}</v-list-item-subtitle>
               <v-list-item-subtitle>{{ infoMember.lastname }}</v-list-item-subtitle>
               <v-list-item-subtitle>{{ infoMember. address }}</v-list-item-subtitle>
@@ -41,35 +125,7 @@
       </v-col>
     </div>
 
-    <br />
-
-    <v-card class="mx-auto" max-width="500" outlined col-md-6 offset-md-3>
-      <v-card-text>
-        <p class="display-1 text--primary">member information</p>
-      </v-card-text>
-
-      <v-col>
-        <!--form members -->
-
-        <v-form ref="form" lazy-validation @submit.prevent="submit" onsubmit="return false;">
-          <v-text-field v-model="number" label="Number" required></v-text-field>
-
-          <v-text-field v-model="firstname" label="Firstname" required></v-text-field>
-
-          <v-text-field v-model="lastname" label="Lastname" required></v-text-field>
-
-          <v-text-field v-model="address" label="Address" required></v-text-field>
-
-          <v-text-field v-model="tel" :counter="10" label="Telephone" required></v-text-field>
-
-          <div class="my-2">
-            <v-btn rounded block color="#05BC01" dark v-on:click="addmemberinfo">Confirm</v-btn>
-
-            <v-icon dark>refresh</v-icon>
-          </div>
-        </v-form>
-      </v-col>
-    </v-card>
+   
   </v-container>
 </v-app>
 </template>

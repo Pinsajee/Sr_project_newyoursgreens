@@ -3,6 +3,10 @@
     <v-layout row>
       <!-- head photo-->
       <v-flex xs12 md8>
+        <v-btn text color="black" @click="signout" type="submit" class="btn">
+        <span>Log Out</span>
+        <v-icon right>exit_to_app</v-icon>
+      </v-btn>
         <v-col cols="12">
           <v-img :src="require('../assets/pic1.jpg')" max-height="400" />
         </v-col>
@@ -61,6 +65,7 @@
                       prepend-icon="event"
                       @blur="date = parseDate(dateFormatted)"
                       v-on="on"
+                      :disabledDates="disabledDates"
                     ></v-text-field>
                   </template>
 
@@ -139,12 +144,11 @@
             <v-divider></v-divider>
             <v-col cols="12" sm="12">
               <v-text-field
-                v-model="name"
+                v-model="firstname"
                 label="Name"
                 single-line
                 required
                 :rules="nameRules"
-              
               ></v-text-field>
               <v-text-field
                 v-model="email"
@@ -154,13 +158,13 @@
                 required
               ></v-text-field>
               <v-text-field
-                v-model="phone"
-                 :rules="phoneRules"
+                v-model="mobile"
+                :rules="phoneRules"
                 label="Phone"
                 single-line
                 required
-               :counter="10"
-                 maxlength="10"
+                :counter="10"
+                maxlength="10"
               ></v-text-field>
             </v-col>
           </v-card>
@@ -180,7 +184,7 @@
                 Time: {{ time }}
                 <br />
                 <br />
-                Name: {{ name }}
+                Name: {{ firstname }}
                 <br />
                 <br />
                 Golfers: {{ golfers }}
@@ -189,7 +193,7 @@
                 E-mail: {{ email }}
                 <br />
                 <br />
-                Phone: {{ phone }}
+                Phone: {{ mobile }}
                 <br />
                 <br />
               </div>
@@ -253,7 +257,7 @@ import { booking } from "../database/databaseconfig";
 export default {
   data() {
     return {
-      name:"userhome",
+      name: "userhome",
       name: "timeloop",
       dialog: false,
 
@@ -286,50 +290,66 @@ export default {
       ],
       date: null,
       time: "",
-      name: "",
+      firstname: "",
+      lastname: "",
       email: "",
-      phone: "",
+      mobile: "",
       golfers: null,
       bookingArray: [],
-      nameRules: [
-        v => !!v || 'Name is required',
-       
-      ],
+      nameRules: [(v) => !!v || "Name is required"],
       emailRules: [
-        v => !!v || 'E-mail is required',
-        v => /.+@.+/.test(v) || 'E-mail must be valid',
+        (v) => !!v || "E-mail is required",
+        (v) => /.+@.+/.test(v) || "E-mail must be valid",
       ],
-      phoneRules:[
-        v => !!v || 'phone is required',
-        v => v.length <= 10 || 'phone must be less than 10 number',
-        v => /^\d+$/.test(v)||'This field only accept numbers'
-      ]
+      phoneRules: [
+        (v) => !!v || "phone is required",
+        (v) => v.length <= 10 || "phone must be less than 10 number",
+        (v) => /^\d+$/.test(v) || "This field only accept numbers",
+      ],
+      beforeCreate() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          this.$router.replace("/adminlogin")
+          alert("You don't have a permission")
+        }
+    });
+  },
     };
   },
   components: {
     // selectTime,
     datePicker,
   },
-
+ 
   methods: {
+    signout() {
+       firebase
+       .auth()
+       .signOut()
+       .then(() => {
+         this.$router.replace("/adminlogin");
+       });
+    },
     addbooking() {
       console.log({ date: this.date });
       console.log({ time: this.time });
       booking.push({
         date: this.date,
         time: this.time,
-        name: this.name,
+        firstname: this.firstname,
+        lastname: this.lastname,
         email: this.email,
-        phone: this.phone,
+        tel: this.mobile,
         golfers: this.golfers,
+        bookedby: "Customer",
       });
     },
     checkdata() {
-         usersRef.once('value', function(snapshot) {
-          if (snapshot.hasChild(theDataToAdd)) {
-          alert('exists');
-  }
-});
+      usersRef.once("value", function(snapshot) {
+        if (snapshot.hasChild(theDataToAdd)) {
+          alert("exists");
+        }
+      });
     },
     created() {
       booking.on("child_added", (snapshot) => {
@@ -356,10 +376,15 @@ export default {
       return this.formatDate(this.date);
     },
   },
+  
 
   watch: {
     date(val) {
       this.dateFormatted = this.formatDate(this.date);
+      this.disabledDates = new Date(Date.now() - 8640000);
+    },
+    dialog() {
+      this.$refs.form.reset();
     },
   },
 };
