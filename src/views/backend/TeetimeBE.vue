@@ -1,9 +1,9 @@
 <template>
   <div class="teetime">
     <Drawer />
- 
+
     <v-container class="my-5">
-     <h1>Teetime</h1>
+      <h1>Teetime</h1>
       <v-layout row wrap>
         <v-flex>
           <v-card>
@@ -29,7 +29,7 @@
                   </template>
                   <v-date-picker
                     v-model="date"
-                    @input="menu2 = false"
+                    @input="menu2 = fadatelse"
                     :landscape="$vuetify.breakpoint.smAndUp"
                     class="mt-4"
                   ></v-date-picker>
@@ -42,7 +42,12 @@
 
       <v-layout row>
         <v-flex>
-          <v-data-table :headers="headers" :items="teetime" class="elevation-1">
+          {{ bookingperday }}
+          <v-data-table
+            :headers="headers"
+            :items="bookingperday"
+            class="elevation-1"
+          >
             <template v-slot:top>
               <v-toolbar flat color="white">
                 <v-toolbar-title>Teetime</v-toolbar-title>
@@ -70,11 +75,12 @@
                           <v-col cols="12" sm="6" md="12">
                             <div class="text--primary">
                               Date: {{ date }}<br />
-                              <v-text  v-model="editedItem.time"
-                              >Time: {{editedItem.time}}</v-text>
+                              <v-text v-model="editedItem.time"
+                                >Time: {{ editedItem.time }}</v-text
+                              >
                             </div>
                           </v-col>
-                         
+
                           <v-col cols="12" sm="6" md="6">
                             <v-text-field
                               v-model="editedItem.firstname"
@@ -123,8 +129,11 @@
                       <v-btn color="blue darken-1" text @click="close"
                         >Cancel</v-btn
                       >
-                      <v-btn color="blue darken-1" text @click="save"
-                      v-on:click="addbooking"
+                      <v-btn
+                        color="blue darken-1"
+                        text
+                        @click="save"
+                        v-on:click="addbooking"
                         >Save</v-btn
                       >
                     </v-card-actions>
@@ -132,14 +141,30 @@
                 </v-dialog>
               </v-toolbar>
             </template>
-            <template v-slot:item.actions="{item}">
-              <v-icon small class="mr-2" @click="editItem(item)">
-                mdi-pencil
-              </v-icon>
-            </template>
-            <template v-slot:no-data>
-              <v-btn color="primary" @click="initialize">Reset</v-btn>
-            </template>
+            <template v-slot:item.actions="{ item }">
+            <v-icon
+              v-on:click="addbooking"
+              small
+              class="mr-2"
+              @click="editItem(item)"
+            >
+              mdi-pencil
+            </v-icon>
+            <v-icon
+              small
+              @click="deleteItem(item)"
+            >
+              mdi-delete
+            </v-icon>
+          </template>
+          <template v-slot:no-data>
+            <v-btn
+              color="primary"
+              @click="initialize"
+            >
+              Reset
+            </v-btn>
+    </template>
           </v-data-table>
         </v-flex>
       </v-layout>
@@ -154,76 +179,100 @@ export default {
   components: {
     Drawer,
   },
-  data(){
-return{
-date: new Date().toISOString().substr(0, 10),
-    menu2: false,
-    dialog: false,
-    headers: [
-      {
-        text: "Time",
-        align: "start",
-        sortable: false,
-        value: "time",
+  data() {
+    return {
+      bookingArrays: [],
+      bookingperday: [],
+      date: new Date().toISOString().substr(0, 10),
+      menu2: false,
+      dialog: false,
+      headers: [
+        {
+          text: "Time",
+          align: "start",
+          sortable: false,
+          value: "time",
+        },
+        { text: "reservation info", value: "firstname" },
+        { text: "golfer", value: "golfers" },
+        { text: "Save/Edit Booking", value: "actions", sortable: false },
+      ],
+      teetime: [],
+      editedIndex: -1,
+      editedItem: {
+        time: "",
+        date: "",
+        firstname: "",
+        lastname: "",
+        Email: "",
+        mobile: "",
+        golfer: "",
+        admin: "",
+        // bookingArrays: [],
       },
-      { text: "reservation info", value: "firstname" },
-      { text: "golfer", value: "golfer" },
-      { text: "Actions", value: "actions", sortable: false },
-    ],
-    teetime: [],
-    editedIndex: -1,
-    editedItem: {
-      time: "",
-      date: "",
-      firstname: "",
-      lastname: "",
-      Email: "",
-      mobile: "",
-      golfer: "",
-      admin: "",
-      bookingArrays: []
-    },
-    defaultItem: {
-      time: "",
-      firstname: "",
-      lastname: "",
-      Email: "",
-      mobile: "",
-      golfer: "",
-      admin: "",
-    },
-  };
-
+      defaultItem: {
+        time: "",
+        firstname: "",
+        lastname: "",
+        Email: "",
+        mobile: "",
+        golfer: "",
+        admin: "",
+      },
+    };
   },
-    
+
   watch: {
     dialog(val) {
       val || this.close();
+    },
+    date: {
+      handler: function (val, oldCal) {
+        this.querydata(val);
+      },
     },
   },
 
   created() {
     this.initialize();
-     booking.on("child_added", snapshot => {
+    booking.on("child_added", (snapshot) => {
       this.bookingArrays.push({ ...snapshot.val(), id: snapshot.key });
-      console.log(snapshot.key);
+      console.log(this.bookingArrays);
     });
   },
 
   methods: {
+    async querydata(date) {
+      console.log("=====  วันที่ " + date)
+      this.bookingperday = []
+      console.log("check null value" + this.bookingperday.length)
+      await booking
+        .orderByChild("date")
+        .equalTo(date)
+        .once("value", (snapshot) => {
+          
+          console.log("=================");
+          let data = snapshot.val()
+          for (const key in data) {
+            // console.log(data[key])
+            this.bookingperday.push(data[key] );
+          }
+          console.log(this.bookingperday + " after");
+        });
+    },
     addbooking() {
       {
-      booking.push({
-        date: this.date,
-        time: this.editedItem.time,
-        firstname: this.editedItem.firstname,
-        lastname: this.editedItem.lastname,
-        email: this.editedItem.email,
-        tel: this.editedItem.mobile,
-        golfers: this.editedItem.golfer,
-        bookedby: this.editedItem.admin
-      });
-    }
+        booking.push({
+          date: this.date,
+          time: this.editedItem.time,
+          firstname: this.editedItem.firstname,
+          lastname: this.editedItem.lastname,
+          email: this.editedItem.email,
+          tel: this.editedItem.mobile,
+          golfers: this.editedItem.golfer,
+          bookedby: this.editedItem.admin,
+        });
+      }
     },
     initialize() {
       this.teetime = [
@@ -292,12 +341,12 @@ date: new Date().toISOString().substr(0, 10),
         },
         {
           time: "08.59",
-          firstname: "",
-          lastname: "",
-          Email: "",
-          mobile: "",
-          golfer: "",
-          admin: "",
+          firstname: this.editedItem.firstname,
+          lastname: this.editedItem.lastnam,
+          Email: this.editedItem.email,
+          mobile: this.editedItem.mobile,
+          golfer: this.editedItem.golfer,
+          admin: this.editedItem.admin,
         },
         {
           time: "09.06",
@@ -445,6 +494,222 @@ date: new Date().toISOString().substr(0, 10),
         },
         {
           time: "10.58",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.05",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.12",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.19",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.26",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.33",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.40",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.47",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "11.54",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.01",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.08",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.15",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.22",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.29",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.36",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.43",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.50",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "12.57",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "13.04",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "13.11",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "13.18",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "13.25",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "13.32",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "13.39",
+          firstname: "",
+          lastname: "",
+          Email: "",
+          mobile: "",
+          golfer: "",
+          admin: "",
+        },
+        {
+          time: "13.42",
           firstname: "",
           lastname: "",
           Email: "",
