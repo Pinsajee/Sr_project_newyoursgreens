@@ -54,7 +54,7 @@ export default {
       firebase
         .auth()
         .signInWithRedirect(provide)
-        .then((result) => {
+        auth.getRedirectResult().then(function(result) {
           this.$router.replace({ name: "bookinguser" });
           // create user in db
           let obj = {
@@ -72,5 +72,6 @@ export default {
     },
   },
 };
+
 
 </script>
