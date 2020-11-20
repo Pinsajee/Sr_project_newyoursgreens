@@ -53,8 +53,8 @@ export default {
       const provide = new firebase.auth.FacebookAuthProvider();
       firebase
         .auth()
-        .signInWithRedirect(provide)
-        auth.getRedirectResult().then(function(result) {
+        .signInWithPopup(provide)
+        .then((result) => {
           this.$router.replace({ name: "bookinguser" });
           // create user in db
           let obj = {
@@ -72,6 +72,4 @@ export default {
     },
   },
 };
-
-
 </script>
