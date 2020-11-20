@@ -54,6 +54,19 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provide)
+        // singin Redirect 
+  //       .signInWithRedirect(provide)
+  //       auth.getRedirectResult().then(function(result) {
+  //         if (result.credential) {
+  //            var token = result.credential.accessToken;}
+  //             var user = result.user;
+  //              this.$router.replace({ name: "bookinguser" });
+  //             }).catch(function(error) {
+  //               var errorCode = error.code;
+  // var errorMessage = error.message;
+  // var email = error.email;
+  // var credential = error.credential;
+  // });
         .then((result) => {
           this.$router.replace({ name: "bookinguser" });
           // create user in db
@@ -72,4 +85,5 @@ export default {
     },
   },
 };
+
 </script>
