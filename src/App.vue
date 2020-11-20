@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import navigation from './components/navigation';
 import Drawer from '../src/components/backend/Drawer';
 export default {

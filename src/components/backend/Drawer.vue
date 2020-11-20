@@ -5,13 +5,14 @@
         <span class="font-weight-light">YourGreen</span>
       </v-toolbar-title>
 
-      <v-spacer></v-spacer>
-       <v-btn text color="#ffffff" @click="signout" type="submit" class="btn">
+      <v-spacer></v-spacer> 
+      <span>{{getUsername}}</span>
+      <v-btn text color="#ffffff" @click="signout" type="submit" class="btn">
         <span>Log Out</span>
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
     </v-toolbar>
-    <v-navigation-drawer v-model="drawer" app >
+    <v-navigation-drawer v-model="drawer" app>
       <v-list dense>
         <v-list-tile avatar>
           <v-list-tile-avatar color="white">
@@ -21,9 +22,7 @@
               contain
               class=" darken-5"
             ></v-img>
-            <br>
-           
-           
+            <br />
           </v-list-tile-avatar>
         </v-list-tile>
 
@@ -38,22 +37,26 @@
           </v-list-item-icon>
 
           <v-list-item-content>
-            
-            <v-list-item-title :to="item.route">{{ item.title }}</v-list-item-title>
+            <v-list-item-title :to="item.route">{{
+              item.title
+            }}</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
     <v-footer color="#0F7D63" app>
-      <span class="white--text">Green Valley Country Club <br> &copy; 2020 </span>
-      
+      <span class="white--text"
+        >Green Valley Country Club <br />
+        &copy; 2020
+      </span>
     </v-footer>
   </nav>
 </template>
 
 <script>
 import firebase from "firebase";
+
 export default {
   name: "Drawer",
   props: ["drawer"],
@@ -65,15 +68,33 @@ export default {
         { title: "Caddy", icon: "account_box", route: "/admin/Caddyinfo" },
         { title: "Member", icon: "account_box", route: "/admin/memberinfo" },
       ],
+  
     };
   }, beforeCreate() {
     firebase.auth().onAuthStateChanged((user) => {
         if (!user) {
           this.$router.replace("/adminlogin")
           alert("You don't have a permission")
-        }
-    });
+        }else { 
+          console.log(user.email)
+          console.log(user.displayName)
+          console.log(user.emailVerified)
+          console.log(user.photoURL)
+          
+          
+          var displayName = user.displayName;
+         var email = user.email;
+    var emailVerified = user.emailVerified;
+    var photoURL = user.photoURL;
+    var isAnonymous = user.isAnonymous;
+    var uid = user.uid;
+    var providerData = user.providerData;
+    }});
   },
+  getUsername(user) {
+ this.getUsername(user.email)
+},
+  
   methods: {
     signout() {
        firebase
@@ -83,8 +104,9 @@ export default {
          this.$router.replace("/adminlogin");
        });
     },
-  }
+  },
 };
+
 </script>
 
 <style></style>

@@ -69,6 +69,7 @@ export default {
   // });
         .then((result) => {
           this.$router.replace({ name: "bookinguser" });
+          
           // create user in db
           let obj = {
             facebook_id: result.additionalUserInfo.profile.id,
