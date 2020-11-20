@@ -1,11 +1,11 @@
 <template>
   <v-container  fluid fill-height>
->
+
     
     <v-layout align-center justify-center>
       
       <v-flex xs12 sm8 md4>
-        <h1>Green Valley Country Club Bangkok</h1>
+        <h2>Green Valley Country Club Bangkok</h2>
         <v-col cols="12">
         <v-card class="elevation-5">
           <div id="login" class="main-box">

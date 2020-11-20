@@ -35,7 +35,7 @@ Vue.use(VueRouter)
     component: Home
   },
   {
-    path:'/loginforuser',
+    path:'/',
     name: 'loginforuser',
     component: loginforuser
   },

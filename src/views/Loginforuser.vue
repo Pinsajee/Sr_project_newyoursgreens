@@ -7,7 +7,7 @@
         <v-card class="elevation-12">
           <div id="login" class="main-box">
             <v-toolbar dark color="purple">
-              <v-toolbar-title>Login whit facebook</v-toolbar-title>
+              <v-toolbar-title>Login with facebook</v-toolbar-title>
             </v-toolbar>
             <v-card-text>
               <v-img
