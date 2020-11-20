@@ -1,11 +1,15 @@
 <template>
-  <v-container>
+  <v-container  fluid fill-height>
+>
+    
     <v-layout align-center justify-center>
+      
       <v-flex xs12 sm8 md4>
-        <v-card class="elevation-12">
+        <h1>Green Valley Country Club Bangkok</h1>
+        <v-card class="elevation-5">
           <div id="login" class="main-box">
-            <v-toolbar dark color="purple">
-              <v-toolbar-title>Login Form</v-toolbar-title>
+            <v-toolbar dark color="#05AE62">
+              <v-toolbar-title>Login </v-toolbar-title>
             </v-toolbar>
             <v-card-text>
                 <v-form>
@@ -31,7 +35,7 @@
                     <v-spacer></v-spacer>
                     <v-btn
                       dark
-                      color="pink"
+                      color="#05AE62"
                       type="button"
                       value="submit"
                       class="btn"
