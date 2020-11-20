@@ -13,6 +13,7 @@ import HomeBE from '../views/backend/HomeBE.vue'
 import Teetime from '../views/backend/TeetimeBE.vue'
 import loginforuser from '../views/Loginforuser.vue'
 import admindrawer from '../components/backend/Drawer.vue'
+import navigation from '../components/navigation.vue'
 
 
 
@@ -24,9 +25,12 @@ Vue.use(VueRouter)
     name: 'admindrawer',
     component: admindrawer
   }
-    ,
+    ,  { path: '/booking',
+    name: 'navigation',
+    component: navigation
+  },
   {
-    path: '/booking',
+    path: '/bookingcourse',
     name: 'bookinguser',
     component: Home
   },

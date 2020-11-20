@@ -3,10 +3,7 @@
     <v-layout row>
       <!-- head photo-->
       <v-flex xs12 md8>
-        <v-btn text color="black" @click="signout" type="submit" class="btn">
-        <span>Log Out</span>
-        <v-icon right>exit_to_app</v-icon>
-      </v-btn>
+        
         <v-col cols="12">
           <v-img :src="require('../assets/pic1.jpg')" max-height="400" />
         </v-col>
@@ -253,6 +250,7 @@
 import selectTime from "@/components/timeloop.vue";
 import datePicker from "@/components/DatePicker.vue";
 import { booking } from "../database/databaseconfig";
+import firebase from "firebase";
 
 export default {
   data() {
@@ -315,6 +313,13 @@ export default {
     });
   },
     };
+  },beforeCreate() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          this.$router.replace("/loginforuser")
+          alert("You don't have a permission")
+        }
+    });
   },
   components: {
     // selectTime,

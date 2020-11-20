@@ -22,41 +22,34 @@
          >{{ item.text }}</v-btn>
         </v-toolbar-items>
        -->
+        <v-spacer></v-spacer>
+       <v-btn text color="#ffffff" @click="signout" type="submit" class="btn">
+        <span>Log Out</span>
+        <v-icon right>exit_to_app</v-icon>
+      </v-btn>
   </v-app-bar>
+ 
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
+    //     {
   name: "navigation",
 
   data: () => ({
-    //  nav: [
-    //     {
-    //       icon: 'home',
-    //       text: 'Teetime',
-    //       title: 'Back to Booling page',
-    //       active: true
-    //     },
-    //     {
-    //       icon: 'info',
-    //       text: 'Caddy',
-    //       title: 'About Caddy',
-    //       active: false
-    //     },
-    //     {
-    //       icon: 'assignment_turned_in',
-    //       text: 'Member',
-    //       title: 'member',
-    //       active: false
-    //     },
-    //     {
-    //       icon: 'email',
-    //       text: 'Starter',
-    //       title: 'starter',
-    //       active: false
-    //     }
-    //   ]
+   
   }),
+methods: {
+    signout() {
+       firebase
+       .auth()
+       .signOut()
+       .then(() => {
+         this.$router.replace("/loginforuser");
+       });
+    },
+  }
 };
 </script>
 

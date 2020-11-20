@@ -2,6 +2,7 @@
   <v-container>
     <v-layout align-center justify-center>
       <v-flex xs12 md8>
+         <h3>Green Valley Country Club Bangkok</h3>
         <v-col cols="12">
         <v-card class="elevation-12">
           <div id="login" class="main-box">
@@ -11,7 +12,7 @@
             <v-card-text>
               <v-img
                 src="../assets/facebooklogo.png"
-                height="180px"
+                height="120px"
                 contain
               ></v-img>
 <br>

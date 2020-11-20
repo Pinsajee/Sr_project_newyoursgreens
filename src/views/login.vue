@@ -6,6 +6,7 @@
       
       <v-flex xs12 sm8 md4>
         <h1>Green Valley Country Club Bangkok</h1>
+        <v-col cols="12">
         <v-card class="elevation-5">
           <div id="login" class="main-box">
             <v-toolbar dark color="#05AE62">
@@ -47,6 +48,7 @@
             </v-card-text>
           </div>
         </v-card>
+        </v-col>
       </v-flex>
     </v-layout>
   </v-container>
