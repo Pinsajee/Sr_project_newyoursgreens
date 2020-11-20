@@ -155,6 +155,7 @@
 <script>
 import { caddy, caddyinfo } from "../../database/databaseconfig";
 import Drawer from "../../components/backend/Drawer";
+import firebase from "firebase";
 export default {
   components: {
     Drawer,
@@ -187,6 +188,13 @@ export default {
       // editedNickname: null,
       // editedTel: null
     };
+  },beforeCreate() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          this.$router.replace("/adminlogin")
+          alert("You don't have a permission")
+        }
+    });
   },
 
   methods: {

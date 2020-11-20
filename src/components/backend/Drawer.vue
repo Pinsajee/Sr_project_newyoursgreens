@@ -6,7 +6,7 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer>
-      <v-btn text color="#ffffff">
+       <v-btn text color="#ffffff" @click="signout" type="submit" class="btn">
         <span>Log Out</span>
         <v-icon right>exit_to_app</v-icon>
       </v-btn>
@@ -53,19 +53,37 @@
 </template>
 
 <script>
+import firebase from "firebase";
 export default {
   name: "Drawer",
   props: ["drawer"],
   data() {
     return {
       items: [
-        { title: "Home", icon: "home", route: "/admin" },
-        { title: "Teetime", icon: "dashboard", route: "/Teetime" },
-        { title: "Caddy", icon: "account_box", route: "/adminCaddy" },
-        { title: "Member", icon: "account_box", route: "/adminmemberinfo" },
+        { title: "Home", icon: "home", route: "/admin/home" },
+        { title: "Teetime", icon: "dashboard", route: "/admin/Teetime" },
+        { title: "Caddy", icon: "account_box", route: "/admin/Caddyinfo" },
+        { title: "Member", icon: "account_box", route: "/admin/memberinfo" },
       ],
     };
+  }, beforeCreate() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          this.$router.replace("/adminlogin")
+          alert("You don't have a permission")
+        }
+    });
   },
+  methods: {
+    signout() {
+       firebase
+       .auth()
+       .signOut()
+       .then(() => {
+         this.$router.replace("/adminlogin");
+       });
+    },
+  }
 };
 </script>
 

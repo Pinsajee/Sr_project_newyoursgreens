@@ -170,6 +170,8 @@
 <script>
 import Drawer from "../../components/backend/Drawer";
 import { booking } from "../../database/databaseconfig";
+
+import firebase from "firebase";
 export default {
   components: {
     Drawer,
@@ -215,6 +217,13 @@ export default {
         admin: "",
       },
     };
+  },beforeCreate() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          this.$router.replace("/adminlogin")
+          alert("You don't have a permission")
+        }
+    });
   },
 
   watch: {

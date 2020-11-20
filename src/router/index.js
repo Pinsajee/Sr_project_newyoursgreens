@@ -12,6 +12,7 @@ import memberedit from '../views/backend/MemberEdit.vue'
 import HomeBE from '../views/backend/HomeBE.vue'
 import Teetime from '../views/backend/TeetimeBE.vue'
 import loginforuser from '../views/Loginforuser.vue'
+import admindrawer from '../components/backend/Drawer.vue'
 
 
 
@@ -19,6 +20,11 @@ import loginforuser from '../views/Loginforuser.vue'
 Vue.use(VueRouter)
 
   const routes = [
+    { path: '/admin',
+    name: 'admindrawer',
+    component: admindrawer
+  }
+    ,
   {
     path: '/booking',
     name: 'bookinguser',
@@ -31,12 +37,12 @@ Vue.use(VueRouter)
   },
  
   {
-    path: '/Teetime',
+    path: '/admin/Teetime',
     name: 'Teetime',
     component: Teetime
   },
   {
-    path: '/admin',
+    path: '/admin/home',
     name: 'Homebn',
     component: HomeBE
   },
@@ -46,7 +52,7 @@ Vue.use(VueRouter)
     component: frominput
   },
   {
-    path: '/admincaddy',
+    path: '/admin/caddyinfo',
     name: 'caddyinfo',
     component: caddyinfo
   },
@@ -64,7 +70,7 @@ Vue.use(VueRouter)
     name: 'Login',
     component: login
   }, {
-    path: '/adminmemberinfo',
+    path: '/admin/memberinfo',
     name: 'memberinfo',
     component: memberinfo
   },{

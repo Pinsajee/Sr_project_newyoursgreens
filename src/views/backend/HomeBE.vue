@@ -2,10 +2,7 @@
   <v-app>
     <Drawer />
     <div>
-       <v-btn text color="black" @click="signout" type="submit" class="btn">
-        <span>Log Out</span>
-        <v-icon right>exit_to_app</v-icon>
-      </v-btn>
+       
       <v-img
         :src="require('../../assets/AfirstPage_01.png')"
         height=""
