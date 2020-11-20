@@ -46,7 +46,7 @@ methods: {
        .auth()
        .signOut()
        .then(() => {
-         this.$router.replace("/loginforuser");
+         this.$router.replace("/");
        });
     },
   }

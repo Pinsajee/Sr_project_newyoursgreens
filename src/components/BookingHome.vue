@@ -304,19 +304,12 @@ export default {
         (v) => v.length <= 10 || "phone must be less than 10 number",
         (v) => /^\d+$/.test(v) || "This field only accept numbers",
       ],
-      beforeCreate() {
-    firebase.auth().onAuthStateChanged((user) => {
-        if (!user) {
-          this.$router.replace("/adminlogin")
-          alert("You don't have a permission")
-        }
-    });
-  },
+     
     };
   },beforeCreate() {
     firebase.auth().onAuthStateChanged((user) => {
         if (!user) {
-          this.$router.replace("/loginforuser")
+          this.$router.replace("/")
           alert("You don't have a permission")
         }
     });
