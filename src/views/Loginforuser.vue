@@ -54,7 +54,7 @@ export default {
       firebase
         .auth()
         .signInWithPopup(provide)
-        // singin Redirect 
+        // singin redairec 
   //       .signInWithRedirect(provide)
   //       auth.getRedirectResult().then(function(result) {
   //         if (result.credential) {
@@ -69,7 +69,6 @@ export default {
   // });
         .then((result) => {
           this.$router.replace({ name: "bookinguser" });
-          
           // create user in db
           let obj = {
             facebook_id: result.additionalUserInfo.profile.id,

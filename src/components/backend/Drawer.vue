@@ -6,7 +6,7 @@
       </v-toolbar-title>
 
       <v-spacer></v-spacer> 
-      <span>{{getUsername}}</span>
+      <!-- <span>{{getUsername}}</span> -->
       <v-btn text color="#ffffff" @click="signout" type="submit" class="btn">
         <span>Log Out</span>
         <v-icon right>exit_to_app</v-icon>
@@ -76,24 +76,24 @@ export default {
           this.$router.replace("/adminlogin")
           alert("You don't have a permission")
         }else { 
-          console.log(user.email)
-          console.log(user.displayName)
-          console.log(user.emailVerified)
-          console.log(user.photoURL)
+    //       console.log(user.email)
+    //       console.log(user.displayName)
+    //       console.log(user.emailVerified)
+    //       console.log(user.photoURL)
           
           
-          var displayName = user.displayName;
-         var email = user.email;
-    var emailVerified = user.emailVerified;
-    var photoURL = user.photoURL;
-    var isAnonymous = user.isAnonymous;
-    var uid = user.uid;
-    var providerData = user.providerData;
+    //       var displayName = user.displayName;
+    //      var email = user.email;
+    // var emailVerified = user.emailVerified;
+    // var photoURL = user.photoURL;
+    // var isAnonymous = user.isAnonymous;
+    // var uid = user.uid;
+    // var providerData = user.providerData;
     }});
   },
-  getUsername(user) {
- this.getUsername(user.email)
-},
+//   getUsername(user) {
+//  this.getUsername(user.email)
+// },
   
   methods: {
     signout() {
