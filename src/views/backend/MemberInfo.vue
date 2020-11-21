@@ -13,7 +13,7 @@
           </template>
           <v-card class="mx-auto" max-width="500" outlined col-md-6 offset-md-3>
             <v-card-text>
-              <p class="display-1 text--primary">caddy information</p>
+              <p class="display-1 text--primary">member information</p>
             </v-card-text>
 
             <v-col>
