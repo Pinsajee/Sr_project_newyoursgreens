@@ -75,22 +75,29 @@ export default {
         if (!user) {
           this.$router.replace("/adminlogin")
           alert("You don't have a permission")
-        }else { 
-    //       console.log(user.email)
-    //       console.log(user.displayName)
-    //       console.log(user.emailVerified)
-    //       console.log(user.photoURL)
+        }
+    });},
+  // },beforeCreate() {
+  //   firebase.auth().onAuthStateChanged((user) => {
+  //       if (!user) {
+  //         this.$router.replace("/adminlogin")
+  //         alert("You don't have a permission")
+  //       }else { 
+  //   //       console.log(user.email)
+  //   //       console.log(user.displayName)
+  //   //       console.log(user.emailVerified)
+  //   //       console.log(user.photoURL)
           
           
-    //       var displayName = user.displayName;
-    //      var email = user.email;
-    // var emailVerified = user.emailVerified;
-    // var photoURL = user.photoURL;
-    // var isAnonymous = user.isAnonymous;
-    // var uid = user.uid;
-    // var providerData = user.providerData;
-    }});
-  },
+  //   //       var displayName = user.displayName;
+  //   //      var email = user.email;
+  //   // var emailVerified = user.emailVerified;
+  //   // var photoURL = user.photoURL;
+  //   // var isAnonymous = user.isAnonymous;
+  //   // var uid = user.uid;
+  //   // var providerData = user.providerData;
+  //   }});
+  // },
 //   getUsername(user) {
 //  this.getUsername(user.email)
 // },
