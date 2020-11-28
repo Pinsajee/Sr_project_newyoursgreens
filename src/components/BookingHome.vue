@@ -312,10 +312,10 @@ export default {
           this.$router.replace("/")
           alert("You don't have a permission")
         }else { 
-          console.log(user.email)
+          // console.log(user.email)
           console.log(user.displayName)
-          console.log(user.emailVerified)
-          console.log(user.photoURL)
+          // console.log(user.emailVerified)
+          // console.log(user.photoURL)
           
           
           var displayName = user.displayName;

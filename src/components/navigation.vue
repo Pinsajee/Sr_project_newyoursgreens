@@ -44,7 +44,7 @@ export default {
           this.$router.replace("/")
          
         }else { 
-          
+console.log(user.displayName)
           this.user = firebase.auth().currentUser;
         if (this.user) {
           this.displayName = this.user.displayName;
