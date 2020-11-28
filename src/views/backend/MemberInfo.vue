@@ -153,8 +153,14 @@ export default {
     firebase.auth().onAuthStateChanged((user) => {
         if (!user) {
           this.$router.replace("/adminlogin")
-          alert("You don't have a permission")
+        
+        }else {
+        console.log(user.email);
+        this.user = firebase.auth().currentUser;
+        if (this.user) {
+          this.email = this.user.email;
         }
+      }
     });
   },
   methods: {
