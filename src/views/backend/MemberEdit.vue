@@ -10,7 +10,7 @@
           <!--form member -->
 
           <v-form ref="form" lazy-validation @submit.prevent="submit" onsubmit="return false;">
-            <v-text-field v-model="form.number" :counter="3" label="Number" required></v-text-field>
+            <v-text-field v-model="form.number" label="Number" required></v-text-field>
 
             <v-text-field v-model.trim="form.firstname" name="Firstname" label="Firstname" required></v-text-field>
 

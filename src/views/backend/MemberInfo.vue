@@ -26,8 +26,8 @@
               >
                 <v-text-field
                   v-model="number"
-                  :rules="codeRules"
-                  :counter="3"
+                  
+                  
                   label="number"
                   required
                 ></v-text-field>

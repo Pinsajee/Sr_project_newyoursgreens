@@ -88,9 +88,14 @@
                           <v-col cols="12" sm="6" md="12">
                             <div class="text--primary">
                               Date: {{ date }}<br />
-                              <v-text v-model="editedItem.time"
-                                >Time: {{ editedItem.time }}</v-text
-                              >
+                               <v-select
+                              v-model="editedItem.time"
+                              :items="['08.10', '08.17', '08.24', '4', '5', '6']"
+                              label="Time"
+                              required
+                            ></v-select>
+                             
+                              
                             </div>
                           </v-col>
 
@@ -114,14 +119,14 @@
                           </v-col>
                           <v-col cols="12" sm="6" md="12">
                             <v-text-field
-                              v-model="editedItem.mobile"
+                              v-model="editedItem.tel"
                               label="mobile"
                               required
                             ></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="6">
                             <v-select
-                              v-model="editedItem.golfer"
+                              v-model="editedItem.golfers"
                               :items="['1', '2', '3', '4', '5', '6']"
                               label="golfer"
                               required
@@ -129,7 +134,7 @@
                           </v-col>
                           <v-col cols="12" sm="6" md="6">
                             <v-text-field
-                              v-model="editedItem.admin"
+                              v-model="editedItem.bookedby"
                               label="admin"
                             ></v-text-field>
                           </v-col>
@@ -155,11 +160,11 @@
               </v-toolbar>
             </template>
 
-            <template v-slot:no-data>
+            <!-- <template v-slot:no-data>
               <v-btn color="primary" @click="initialize">
                 Reset
               </v-btn>
-            </template>
+            </template> -->
           </v-data-table>
         </v-flex>
       </v-layout>
@@ -191,7 +196,7 @@ export default {
           value: "time",
         },
         { text: "reservation info", value: "firstname" },
-        { text: "golfer", value: "golfers" },
+        { text: "golfers", value: "golfers" },
         { text: "Save/Edit Booking", value: "actions", sortable: false },
       ],
       teetime: [],
@@ -202,9 +207,9 @@ export default {
         firstname: "",
         lastname: "",
         Email: "",
-        mobile: "",
-        golfer: "",
-        admin: "",
+        tel: "",
+        golfers: "",
+        bookedby: "",
         // bookingArrays: [],
       },
       defaultItem: {
@@ -212,9 +217,9 @@ export default {
         firstname: "",
         lastname: "",
         Email: "",
-        mobile: "",
-        golfer: "",
-        admin: "",
+        tel: "",
+        golfers: "",
+        bookedby: "",
       },
     };
   },beforeCreate() {
@@ -242,8 +247,32 @@ export default {
     booking.on("child_added", (snapshot) => {
       this.bookingArrays.push({ ...snapshot.val(), id: snapshot.key });
       console.log(this.bookingArrays);
-    });
-  },
+    })
+    // ;booking.on("child_removed", snapshot => {
+    //   const deletedbooking = this.bookingArrays.find(
+    //     bookingArrays => bookingArrays.id == snapshot.key
+    //   );
+    //   const index = this.bookingArrays.indexOf(Deletebooking);
+    //   this.bookingArrays.splice(index, 1);
+    // });
+    //   booking.on("child_changed", snapshot => {
+    //   const updatedbooking = this.bookingArrays.find(
+    //     bookingArrays => memberArrays.bookingArrays == snapshot.key
+    //   );
+    //   updatedbooking.booking = snapshot.val().booking;
+    // });
+    
+    },
+
+    removeBook: function (bookingArrays) {
+    bookingArrays.child(bookingArrays['.key']).remove()
+
+}
+  ,Deletebooking(bookingperday) {
+       confirm("Are you sure you want to delete this item?")
+      booking.child(bookingperday.id).remove();
+
+    },
 
   methods: {
     async querydata(date) {
@@ -347,9 +376,9 @@ export default {
           firstname: this.editedItem.firstname,
           lastname: this.editedItem.lastnam,
           Email: this.editedItem.email,
-          mobile: this.editedItem.mobile,
-          golfer: this.editedItem.golfer,
-          admin: this.editedItem.admin,
+          tel: this.editedItem.mobile,
+          golfers: this.editedItem.golfer,
+          bookedby: this.editedItem.admin,
         },
         {
           time: "09.06",
@@ -729,7 +758,13 @@ export default {
       this.dialog = true;
     },
 
+     deleteinfo(infocaddy) {
+      caddyinfo.child(infocaddy.id).remove();
+    },
+    
+
     deleteItem(item) {
+      
       const index = this.teetime.indexOf(item);
       confirm("Are you sure you want to delete this item?") &&
         this.teetime.splice(index, 1);

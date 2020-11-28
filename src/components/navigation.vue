@@ -11,6 +11,7 @@
       />
     </div>
     <v-spacer></v-spacer>
+
     <!-- <v-toolbar-items center>
          <v-btn
          color="#0F7D63"
@@ -23,6 +24,7 @@
         </v-toolbar-items>
        -->
         <v-spacer></v-spacer>
+        {{displayName}}
        <v-btn text color="#ffffff" @click="signout" type="submit" class="btn">
         <span>Log Out</span>
         <v-icon right>exit_to_app</v-icon>
@@ -36,6 +38,26 @@ import firebase from "firebase";
 export default {
     //     {
   name: "navigation",
+  beforeCreate() {
+    firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          this.$router.replace("/")
+         
+        }else { 
+          
+          this.user = firebase.auth().currentUser;
+        if (this.user) {
+          this.displayName = this.user.displayName;
+        }
+          // console.log(user.email)
+          // console.log(user.displayName)
+          // console.log(user.emailVerified)
+          // console.log(user.photoURL)
+          
+          
+         
+    }});
+  },
 
   data: () => ({
    
