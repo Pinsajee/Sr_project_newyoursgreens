@@ -5,8 +5,8 @@
         <span class="font-weight-light">YourGreen</span>
       </v-toolbar-title>
 
-      <v-spacer></v-spacer> 
-      <!-- <span>{{getUsername}}</span> -->
+      <v-spacer></v-spacer>
+      <span>{{ email }}</span>
       <v-btn text color="#ffffff" @click="signout" type="submit" class="btn">
         <span>Log Out</span>
         <v-icon right>exit_to_app</v-icon>
@@ -68,27 +68,32 @@ export default {
         { title: "Caddy", icon: "account_box", route: "/admin/Caddyinfo" },
         { title: "Member", icon: "account_box", route: "/admin/memberinfo" },
       ],
-  
     };
-  }, beforeCreate() {
+  },
+  beforeCreate() {
     firebase.auth().onAuthStateChanged((user) => {
-        if (!user) {
-          this.$router.replace("/adminlogin")
-          
+      if (!user) {
+        this.$router.replace("/adminlogin");
+      } else {
+        console.log(user.email);
+        this.user = firebase.auth().currentUser;
+        if (this.user) {
+          this.email = this.user.email;
         }
-    });},
+      }
+    });
+  },
   // },beforeCreate() {
   //   firebase.auth().onAuthStateChanged((user) => {
   //       if (!user) {
   //         this.$router.replace("/adminlogin")
   //         alert("You don't have a permission")
-  //       }else { 
+  //       }else {
   //   //       console.log(user.email)
   //   //       console.log(user.displayName)
   //   //       console.log(user.emailVerified)
   //   //       console.log(user.photoURL)
-          
-          
+
   //   //       var displayName = user.displayName;
   //   //      var email = user.email;
   //   // var emailVerified = user.emailVerified;
@@ -98,22 +103,21 @@ export default {
   //   // var providerData = user.providerData;
   //   }});
   // },
-//   getUsername(user) {
-//  this.getUsername(user.email)
-// },
-  
+  //   getUsername(user) {
+  //  this.getUsername(user.email)
+  // },
+
   methods: {
     signout() {
-       firebase
-       .auth()
-       .signOut()
-       .then(() => {
-         this.$router.replace("/adminlogin");
-       });
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace("/adminlogin");
+        });
     },
   },
 };
-
 </script>
 
 <style></style>
