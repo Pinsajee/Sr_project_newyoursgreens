@@ -47,8 +47,9 @@
 
     <v-footer color="#0F7D63" app>
       <span class="white--text"
-        >Green Valley Country Club <br />
-        &copy; 2020
+        >
+        <strong>Green Valley Country Club </strong>
+        &copy;  {{ new Date().getFullYear() }}
       </span>
     </v-footer>
   </nav>
