@@ -96,6 +96,7 @@
       <v-col cols="12" sm="6" v-for="(infoMember, key) in memberArrays" :key="key">
         <!--card-->
         <v-card max-width="460">
+          
           <v-list-item three-line>
             <v-list-item-content>
               

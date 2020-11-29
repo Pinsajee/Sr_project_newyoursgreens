@@ -88,34 +88,40 @@
                           <v-col cols="12" sm="6" md="12">
                             <div class="text--primary">
                               Date: {{ date }}<br />
-                               <v-select
-                              v-model="editedItem.time"
-                              :items="['08.10', '08.17', '08.24', '08.32', '08.39', '08.42']"
-                              label="Time"
-                              required
-                            ></v-select>
-                              <v-text v-model="editedItem.time"
-                               :items="['1', '2', '3', '4', '5', '6']"
-                                >Time: {{ time }}</v-text
-                              >
+                              <v-select
+                                v-model="editedItem.time"
+                                :items="[
+                                  '08.10',
+                                  '08.17',
+                                  '08.24',
+                                  '08.32',
+                                  '08.39',
+                                  '08.42',
+                                ]"
+                                label="Time"
+                                required
+                              ></v-select>
                             </div>
                           </v-col>
 
                           <v-col cols="12" sm="6" md="6">
                             <v-text-field
                               v-model="editedItem.firstname"
+                              :rules="nameRules"
                               label="firstname"
                             ></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="6">
                             <v-text-field
                               v-model="editedItem.lastname"
+                              :rules="nameRules"
                               label="lastname"
                             ></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="12">
                             <v-text-field
                               v-model="editedItem.email"
+                              :rules="emailRules"
                               label="email"
                             ></v-text-field>
                           </v-col>
@@ -124,6 +130,9 @@
                               v-model="editedItem.tel"
                               label="mobile"
                               required
+                              :rules="phoneRules"
+                              :counter="10"
+                              maxlength="10"
                             ></v-text-field>
                           </v-col>
                           <v-col cols="12" sm="6" md="6">
@@ -168,8 +177,6 @@
               </v-btn>
             </template> -->
           </v-data-table>
-
-          
         </v-flex>
       </v-layout>
     </v-container>
@@ -225,13 +232,20 @@ export default {
         golfer: "",
         admin: "",
       },
+      nameRules: [(v) => !!v || "Name is required"],
+      emailRules: [(v) => /.+@.+/.test(v) || "E-mail must be valid"],
+      phoneRules: [
+        (v) => !!v || "phone is required",
+        (v) => v.length <= 10 || "phone must be less than 10 number",
+        (v) => /^\d+$/.test(v) || "This field only accept numbers",
+      ],
     };
-  },beforeCreate() {
+  },
+  beforeCreate() {
     firebase.auth().onAuthStateChanged((user) => {
-        if (!user) {
-          this.$router.replace("/adminlogin")
-        
-        }else {
+      if (!user) {
+        this.$router.replace("/adminlogin");
+      } else {
         console.log(user.email);
         this.user = firebase.auth().currentUser;
         if (this.user) {
