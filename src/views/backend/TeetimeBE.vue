@@ -90,12 +90,14 @@
                               Date: {{ date }}<br />
                                <v-select
                               v-model="editedItem.time"
-                              :items="['08.10', '08.17', '08.24', '4', '5', '6']"
+                              :items="['08.10', '08.17', '08.24', '08.32', '08.39', '08.42']"
                               label="Time"
                               required
                             ></v-select>
-                             
-                              
+                              <v-text v-model="editedItem.time"
+                               :items="['1', '2', '3', '4', '5', '6']"
+                                >Time: {{ time }}</v-text
+                              >
                             </div>
                           </v-col>
 
@@ -166,6 +168,8 @@
               </v-btn>
             </template> -->
           </v-data-table>
+
+          
         </v-flex>
       </v-layout>
     </v-container>
@@ -196,7 +200,7 @@ export default {
           value: "time",
         },
         { text: "reservation info", value: "firstname" },
-        { text: "golfers", value: "golfers" },
+        { text: "golfer", value: "golfers" },
         { text: "Save/Edit Booking", value: "actions", sortable: false },
       ],
       teetime: [],
@@ -207,9 +211,9 @@ export default {
         firstname: "",
         lastname: "",
         Email: "",
-        tel: "",
-        golfers: "",
-        bookedby: "",
+        mobile: "",
+        golfer: "",
+        admin: "",
         // bookingArrays: [],
       },
       defaultItem: {
@@ -217,16 +221,16 @@ export default {
         firstname: "",
         lastname: "",
         Email: "",
-        tel: "",
-        golfers: "",
-        bookedby: "",
+        mobile: "",
+        golfer: "",
+        admin: "",
       },
     };
   },beforeCreate() {
     firebase.auth().onAuthStateChanged((user) => {
         if (!user) {
           this.$router.replace("/adminlogin")
-          
+        
         }else {
         console.log(user.email);
         this.user = firebase.auth().currentUser;
@@ -253,32 +257,8 @@ export default {
     booking.on("child_added", (snapshot) => {
       this.bookingArrays.push({ ...snapshot.val(), id: snapshot.key });
       console.log(this.bookingArrays);
-    })
-    // ;booking.on("child_removed", snapshot => {
-    //   const deletedbooking = this.bookingArrays.find(
-    //     bookingArrays => bookingArrays.id == snapshot.key
-    //   );
-    //   const index = this.bookingArrays.indexOf(Deletebooking);
-    //   this.bookingArrays.splice(index, 1);
-    // });
-    //   booking.on("child_changed", snapshot => {
-    //   const updatedbooking = this.bookingArrays.find(
-    //     bookingArrays => memberArrays.bookingArrays == snapshot.key
-    //   );
-    //   updatedbooking.booking = snapshot.val().booking;
-    // });
-    
-    },
-
-    removeBook: function (bookingArrays) {
-    bookingArrays.child(bookingArrays['.key']).remove()
-
-}
-  ,Deletebooking(bookingperday) {
-       confirm("Are you sure you want to delete this item?")
-      booking.child(bookingperday.id).remove();
-
-    },
+    });
+  },
 
   methods: {
     async querydata(date) {
@@ -306,9 +286,9 @@ export default {
           firstname: this.editedItem.firstname,
           lastname: this.editedItem.lastname,
           email: this.editedItem.email,
-          tel: this.editedItem.mobile,
-          golfers: this.editedItem.golfer,
-          bookedby: this.editedItem.admin,
+          tel: this.editedItem.tel,
+          golfers: this.editedItem.golfers,
+          bookedby: this.editedItem.bookedby,
         });
       }
     },
@@ -382,9 +362,9 @@ export default {
           firstname: this.editedItem.firstname,
           lastname: this.editedItem.lastnam,
           Email: this.editedItem.email,
-          tel: this.editedItem.mobile,
-          golfers: this.editedItem.golfer,
-          bookedby: this.editedItem.admin,
+          mobile: this.editedItem.mobile,
+          golfer: this.editedItem.golfer,
+          admin: this.editedItem.admin,
         },
         {
           time: "09.06",
@@ -764,13 +744,7 @@ export default {
       this.dialog = true;
     },
 
-     deleteinfo(infocaddy) {
-      caddyinfo.child(infocaddy.id).remove();
-    },
-    
-
     deleteItem(item) {
-      
       const index = this.teetime.indexOf(item);
       confirm("Are you sure you want to delete this item?") &&
         this.teetime.splice(index, 1);
