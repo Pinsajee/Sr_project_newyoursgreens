@@ -76,7 +76,7 @@
                     color="#05BC01"
                     @click="dialog = false"
                     dark
-                    v-on:click="addinfo"
+                    v-on:click="addmemberinfo"
                     >Confirm</v-btn
                   >
                   <br />
@@ -148,8 +148,21 @@ export default {
       lastname: "",
       address: "",
       tel: "",
-      memberArrays: []
+      memberArrays: [],phoneRules: [
+        (v) => !!v || "phone is required",
+        (v) => v.length <= 10 || "phone must be less than 10 number",
+        (v) => /^\d+$/.test(v) || "This field only accept numbers",
+      ],
+      codeRules: [
+        (v) => !!v || "code is required",
+        ,
+        (v) => /^\d+$/.test(v) || "This field only accept numbers",
+      ],
+      nicknameRules: [(v) => !!v || "nickname is required"],
+      firstnameRules: [(v) => !!v || "firstname is required"],
+      lastnameRules: [(v) => !!v || "lastname is required"],
     };
+    
   },beforeCreate() {
     firebase.auth().onAuthStateChanged((user) => {
         if (!user) {
