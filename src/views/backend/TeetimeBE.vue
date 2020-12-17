@@ -48,7 +48,7 @@
             :items="bookingperday"
             class="elevation-1"
           >
-            <template v-slot:item.actions="{ item }">
+            <!-- <template v-slot:item.actions="{ item }">
               <v-icon
                 v-on:click="addbooking"
                 small
@@ -60,7 +60,7 @@
               <v-icon small @click="deleteItem(item)">
                 mdi-delete
               </v-icon>
-            </template>
+            </template> -->
             <template v-slot:top>
               <v-toolbar flat color="white">
                 <v-toolbar-title>Teetime</v-toolbar-title>

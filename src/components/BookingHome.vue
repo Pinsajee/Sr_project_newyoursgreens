@@ -312,11 +312,11 @@ export default {
           this.$router.replace("/")
          
         }else { 
-          // console.log(user.email)
-          console.log(user.displayName)
-          // console.log(user.emailVerified)
-          // console.log(user.photoURL)
-          
+console.log(user.displayName)
+          this.user = firebase.auth().currentUser;
+        if (this.user) {
+          this.displayName = this.user.displayName;
+        }
           
     //       var displayName = user.displayName;
     //      var email = user.email;
@@ -352,7 +352,7 @@ export default {
         email: this.email,
         tel: this.mobile,
         golfers: this.golfers,
-        bookedby: "Customer",
+        bookedby: this.displayName,
       });
     },
     checkdata() {
